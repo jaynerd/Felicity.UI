@@ -1,5 +1,5 @@
 <template>
-    <div id="main">
+    <div id="main" class="vm">
         <h1>This is the main section</h1>
     </div>
 </template>

@@ -1,6 +1,6 @@
 # felicity.ui
 
-> SDM Project
+> SDM Project for managing team's happiness
 
 ## Build Setup
 
