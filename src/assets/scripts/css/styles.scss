@@ -1,5 +1,5 @@
 // variables
-$layout-primary: blue;
+$layout-primary: white;
 $layout-secondary: black;
 $layout-tertiary: red;
 $layout-quaternary: green;
@@ -13,15 +13,19 @@ body {
     height: 100%;
 }
 
-h1 {
-    margin: 0;
-}
-
 // styles by class
 .vm {
     margin: 0;
     width: 100%;
     height: 100%;
+}
+
+.cc {
+    justify-content: center;
+}
+
+.sc {
+    align-self: center;
 }
 
 .vbox {
@@ -32,6 +36,14 @@ h1 {
 .hbox {
     display: flex;
     flex-direction: row;
+}
+
+.clip {
+    color: transparent;
+    background-clip: text;
+    background-color: black;
+    -webkit-background-clip: text;
+    text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.6);
 }
 
 // styles for flex

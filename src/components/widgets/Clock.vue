@@ -1,5 +1,5 @@
 <template>
-    <div id="clock">
+    <div id="clock" class="sc">
         <div id="hours">
             <span id="suffix" v-text="suffix"></span>
             <span v-text="hours"></span>
@@ -44,46 +44,25 @@ export default {
 <style lang="scss" scoped>
 @import "../../assets/scripts/css/styles.scss";
 
-$clock-height: 30px;
-
 #clock {
-  align-self: center;
-  height: 100px;
-  margin-right: 70px;
-  border-radius: 0.5rem;
-
   #hours,
   #minutes,
   #seconds {
-    color: white;
-    font-size: 1.7rem;
+    color: black;
+    font-size: 2rem;
     font-weight: 500;
-    font-family: "Nunito", sans-serif;
-    margin-top: -14px;
-    padding: 0.65rem 1.2rem;
-    border: 0.2rem solid white;
-    background: linear-gradient(
-      to bottom,
-      rgb(36, 52, 97) 50%,
-      rgb(59, 89, 128) 50%
-    );
+    font-family: "Abel", sans-serif;
+    margin-top: 0.2em;
+    padding: 0rem 1rem;
     display: inline-block;
     position: relative;
   }
 }
 
-#hours {
-  border-radius: 0.75rem 0 0 0.75rem;
-}
-
-#seconds {
-  border-radius: 0 0.75rem 0.75rem 0;
-}
-
 #suffix {
-  top: 2px;
-  left: 4px;
-  font-size: 0.6rem;
+  top: -4px;
+  left: 0px;
+  font-size: 0.7rem;
   position: absolute;
 }
 </style>

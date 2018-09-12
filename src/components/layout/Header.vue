@@ -1,7 +1,14 @@
 <template>
-    <div id="header">
-      <h1>Felicity</h1>
-      <app-clock/>
+    <div id="header" class="hbox">
+        <div class="cc flex flex-1">
+            <app-clock class="sc"/>
+        </div>
+        <div class="cc flex flex-1">
+            <h1 class="sc clip">Felicity</h1>
+        </div>
+        <div class="cc flex flex-1">
+            <h3 class="sc">Login Team #3</h3>
+        </div>
     </div>
 </template>
 
@@ -21,8 +28,13 @@ export default {
 
 #header {
   height: 5em;
-  background-color: $layout-primary;
-  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
   z-index: 99;
+  background-color: $layout-primary;
+  box-shadow: 0px 2px 5px 0px rgba(50, 50, 50, 0.75);
+
+  h1 {
+    margin: 0;
+    font-size: 3em;
+  }
 }
 </style>

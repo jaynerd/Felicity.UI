@@ -25,11 +25,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-@import "../assets/scripts/css/styles.scss";
-
-#main {
-  background-color: $layout-secondary;
-}
-</style>
