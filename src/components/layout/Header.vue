@@ -3,7 +3,7 @@
         <div class="cc flex flex-1">
             <app-clock class="sc"/>
         </div>
-        <div class="cc flex flex-1">
+        <div class="cc flex flex-4">
             <h1 class="sc clip">Felicity</h1>
         </div>
         <div class="cc flex flex-1">
@@ -35,6 +35,15 @@ export default {
   h1 {
     margin: 0;
     font-size: 3em;
+    font-weight: 500;
+    font-family: "Julius Sans One", sans-serif;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 3em;
+    font-weight: 300;
+    font-family: "Libre Barcode 128 Text", cursive;
   }
 }
 </style>

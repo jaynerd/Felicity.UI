@@ -1,5 +1,5 @@
 <template>
-    <div id="clock" class="sc">
+    <div id="clock">
         <div id="hours">
             <span id="suffix" v-text="suffix"></span>
             <span v-text="hours"></span>
@@ -53,7 +53,7 @@ export default {
     font-weight: 500;
     font-family: "Abel", sans-serif;
     margin-top: 0.2em;
-    padding: 0rem 1rem;
+    padding: 0rem 0.7rem;
     display: inline-block;
     position: relative;
   }
@@ -61,7 +61,7 @@ export default {
 
 #suffix {
   top: -4px;
-  left: 0px;
+  left: -5px;
   font-size: 0.7rem;
   position: absolute;
 }
