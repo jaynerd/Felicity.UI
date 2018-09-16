@@ -1,5 +1,6 @@
 <template>
-    <div id="footer">
+    <div id="footer" class="cc flex">
+        <div class="sc">Copyright &copy; {{new Date().getFullYear()}} Team SDM, All rights reserved.</div>
     </div>
 </template>
 
@@ -13,7 +14,11 @@ export default {
 @import "../../assets/scripts/css/styles.scss";
 
 #footer {
-  height: 5em;
-  background-color: $layout-quinary;
+  height: 3em;
+  background-color: $layout-white;
+  font-weight: 300;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 </style>

@@ -1,8 +1,7 @@
 // variables
-$layout-primary: white;
-$layout-secondary: black;
+$layout-white: white;
 $layout-tertiary: red;
-$layout-quaternary: green;
+$layout-gray: rgb(45, 45, 45);
 $layout-quinary: yellow;
 
 // styles by element
@@ -46,7 +45,7 @@ body {
     text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.6);
 }
 
-// styles for flex
+// styles for flex & padding
 .flex {
     display: flex;
 }
@@ -61,6 +60,10 @@ body {
 
 .flex-6 {
     flex: 6;
+}
+
+.pad-10 {
+    padding: 10px;
 }
 
 // styles by id

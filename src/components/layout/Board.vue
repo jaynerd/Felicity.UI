@@ -1,5 +1,5 @@
 <template>
-    <div id="board" class="flex-6">
+    <div id="board">
     </div>
 </template>
 

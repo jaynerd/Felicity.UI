@@ -53,7 +53,7 @@ export default {
     font-weight: 500;
     font-family: "Abel", sans-serif;
     margin-top: 0.2em;
-    padding: 0rem 0.7rem;
+    padding: 0rem 0.5rem;
     display: inline-block;
     position: relative;
   }
