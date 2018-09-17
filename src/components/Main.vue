@@ -2,8 +2,8 @@
     <div id="main" class="vm vbox">
         <app-header/>
         <section class="vm hbox flex">
-            <app-nav class="flex-1"/>
-            <app-board class="flex-6"/>
+            <app-nav/>
+            <app-board class="flex-1"/>
         </section>
         <app-footer/>
     </div>
