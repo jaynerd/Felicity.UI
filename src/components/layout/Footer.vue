@@ -1,6 +1,6 @@
 <template>
-    <div id="footer" class="cc flex">
-        <div class="sc">Copyright &copy; {{new Date().getFullYear()}} Team SDM, All rights reserved.</div>
+    <div id='footer' class='cc flex'>
+        <div class='sc'>Copyright &copy; {{new Date().getFullYear()}} Team SDM, All rights reserved.</div>
     </div>
 </template>
 
@@ -10,7 +10,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang='scss' scoped>
 @import "../../assets/scripts/css/styles.scss";
 
 #footer {

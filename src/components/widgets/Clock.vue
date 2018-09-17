@@ -1,11 +1,11 @@
 <template>
-    <div id="clock">
-        <div id="hours">
-            <span id="suffix" v-text="suffix"></span>
-            <span v-text="hours"></span>
+    <div id='clock'>
+        <div id='hours'>
+            <span id='suffix' v-text='suffix'></span>
+            <span v-text='hours'></span>
         </div>
-        <div id="minutes" v-text="minutes"></div>
-        <div id="seconds" v-text="seconds"></div>
+        <div id='minutes' v-text='minutes'></div>
+        <div id='seconds' v-text='seconds'></div>
     </div>
 </template>
 
@@ -41,10 +41,12 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang='scss' scoped>
 @import "../../assets/scripts/css/styles.scss";
 
 #clock {
+  margin: 8px;
+
   #hours,
   #minutes,
   #seconds {

@@ -1,5 +1,5 @@
 <template>
-    <div id="board">
+    <div id='board'>
     </div>
 </template>
 
@@ -9,10 +9,10 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang='scss' scoped>
 @import "../../assets/scripts/css/styles.scss";
 
 #board {
-  background-color: $layout-tertiary;
+  background-color: $layout-dark-turquoise;
 }
 </style>

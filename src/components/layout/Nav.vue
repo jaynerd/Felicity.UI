@@ -1,24 +1,20 @@
 <template>
-    <div id="nav" class="vbox">
-        <div id="dashboard" class="sc">
-            <i class="material-icons icon">dashboard</i>
+    <div id='nav' class='vbox'>
+        <div class='flex-end' @click='toggleNav()'>
+            <i class='material-icons'>arrow_back_ios</i>
+            <!-- <i class='material-icons'>arrow_forward_ios</i> -->
         </div>
-        <div id="profile" class="sc">
-            <i class="material-icons icon">person</i>
-        </div>
-        <div id="workspace" class="sc">
-            <i class="material-icons icon">work</i>
-        </div>
-        <div id="report" class="sc">
-            <i class="material-icons icon">bar_chart</i>
-        </div>
-        <div id="settings" class="sc">
-            <i class="material-icons icon">settings</i>
-        </div>
+        <app-nav-item class='sc' icon='dashboard'/>
+        <app-nav-item class='sc' icon='person'/>
+        <app-nav-item class='sc' icon='work'/>
+        <app-nav-item class='sc' icon='bar_chart'/>
+        <app-nav-item class='sc' icon='settings'/>
     </div>
 </template>
 
 <script>
+import NavItem from "./NavItem.vue";
+
 export default {
   name: "Nav",
   data() {
@@ -26,25 +22,35 @@ export default {
       navOpen: false,
       activeItem: "dashboard"
     };
+  },
+  components: {
+    "app-nav-item": NavItem
+  },
+  methods: {
+    toggleNav() {
+      this.navOpen = !this.navOpen;
+      this.$bus.$emit("toggle-nav");
+      console.log("button is clicked!");
+    }
   }
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang='scss' scoped>
 @import "../../assets/scripts/css/styles.scss";
 
 #nav {
-  width: 60px;
-  min-width: 60px;
-  padding-top: 10px;
+  width: 3.5em;
+  min-width: 3.5em;
+  padding-top: 5px;
   background-color: $layout-gray;
 
-  .icon {
-    margin: 0.1em;
-    padding: 0.2em;
-    font-size: 2em;
+  i {
+    cursor: pointer;
+    padding: 0.1em;
+    padding-right: 0.5em;
+    font-size: 1.5em;
     color: $layout-white;
-    border: 1px solid white;
   }
 }
 </style>

@@ -1,9 +1,7 @@
 // variables
 $layout-white: white;
 $layout-gray: rgb(45, 45, 45);
-
-$layout-tertiary: red;
-$layout-quinary: yellow;
+$layout-dark-turquoise: rgb(15, 40, 50);
 
 // styles by element
 html,
@@ -28,16 +26,6 @@ body {
     align-self: center;
 }
 
-.vbox {
-    display: flex;
-    flex-direction: column;
-}
-
-.hbox {
-    display: flex;
-    flex-direction: row;
-}
-
 .clip {
     color: transparent;
     background-clip: text;
@@ -49,6 +37,21 @@ body {
 // styles for flex & padding
 .flex {
     display: flex;
+}
+
+.vbox {
+    display: flex;
+    flex-direction: column;
+}
+
+.hbox {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-end{
+    display: flex;
+    justify-content: flex-end;
 }
 
 .flex-1 {

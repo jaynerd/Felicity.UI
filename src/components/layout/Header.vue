@@ -1,13 +1,13 @@
 <template>
-    <div id="header" class="hbox">
-        <div class="cc flex flex-1">
-            <app-clock class="sc"/>
+    <div id='header' class='hbox'>
+        <div class='cc flex flex-1'>
+            <app-clock class='sc'/>
         </div>
-        <div class="cc flex flex-4 pad-10">
-            <h1 class="sc clip">Felicity</h1>
+        <div class='cc flex flex-4 pad-10'>
+            <h1 class='sc clip'>Felicity</h1>
         </div>
-        <div class="cc flex flex-1">
-            <h3 class="sc">Login Team #3</h3>
+        <div class='cc flex flex-1'>
+            <h3 class='sc'>Login Team #3</h3>
         </div>
     </div>
 </template>
@@ -23,7 +23,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang='scss' scoped>
 @import "../../assets/scripts/css/styles.scss";
 
 #header {
@@ -45,6 +45,7 @@ export default {
     font-size: 3em;
     font-weight: 300;
     font-family: "Libre Barcode 128 Text", cursive;
+    margin-right: 0.4em;
   }
 }
 </style>

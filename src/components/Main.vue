@@ -1,9 +1,9 @@
 <template>
-    <div id="main" class="vm vbox">
+    <div id='main' class='vm vbox'>
         <app-header/>
-        <section class="vm hbox flex">
+        <section class='vm hbox flex'>
             <app-nav/>
-            <app-board class="flex-1"/>
+            <app-board class='flex-1'/>
         </section>
         <app-footer/>
     </div>
@@ -22,6 +22,11 @@ export default {
     "app-nav": Nav,
     "app-board": Board,
     "app-footer": Footer
+  },
+  mounted() {
+    this.$bus.$on("toggle-nav", $event => {
+      console.log("Event triggered", $event);
+    });
   }
 };
 </script>
