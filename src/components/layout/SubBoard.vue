@@ -45,12 +45,13 @@ export default {
   h3 {
     margin: 0;
     color: #fff;
-    font-size: 1.5em;
-    font-weight: 100;
     padding: 0.2em;
     padding-top: 0.3em;
     padding-left: 1em;
-    font-family: "Rajdhani", sans-serif;
+    font-size: 1.5em;
+    font-weight: 100;
+    font-family: "Aldrich", sans-serif;
+    text-transform: uppercase;
   }
 
   #content {

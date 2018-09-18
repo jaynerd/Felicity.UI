@@ -1,6 +1,6 @@
 <template>
     <div id="workspace">
-        <h1>Workspace</h1>
+        <h1>Workspace Contents</h1>
     </div>
 </template>
 
