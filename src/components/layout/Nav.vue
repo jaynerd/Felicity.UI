@@ -1,14 +1,14 @@
 <template>
-    <div id='nav' class='vbox'>
+    <div id='nav' :class="{'vbox gradient-border': true, 'nav-open': isNavOpen}">
         <div class='flex-end' @click='toggleNav()'>
-            <i class='material-icons'>arrow_back_ios</i>
-            <!-- <i class='material-icons'>arrow_forward_ios</i> -->
+            <i v-if="isNavOpen" class='material-icons'>arrow_back_ios</i>
+            <i v-else class='material-icons'>arrow_forward_ios</i>
         </div>
-        <app-nav-item class='sc' icon='dashboard'/>
-        <app-nav-item class='sc' icon='person'/>
-        <app-nav-item class='sc' icon='work'/>
-        <app-nav-item class='sc' icon='bar_chart'/>
-        <app-nav-item class='sc' icon='settings'/>
+        <app-nav-item class='' icon='dashboard' name='Dashboard' :active="activeItem"/>
+        <app-nav-item class='' icon='person' name='Profile' :active="activeItem"/>
+        <app-nav-item class='' icon='work' name='Workspace' :active="activeItem"/>
+        <app-nav-item class='' icon='bar_chart' name='Report' :active="activeItem"/>
+        <app-nav-item class='' icon='settings' name='Settings' :active="activeItem"/>
     </div>
 </template>
 
@@ -17,21 +17,26 @@ import NavItem from "./NavItem.vue";
 
 export default {
   name: "Nav",
-  data() {
-    return {
-      navOpen: false,
-      activeItem: "dashboard"
-    };
-  },
   components: {
     "app-nav-item": NavItem
   },
   methods: {
     toggleNav() {
-      this.navOpen = !this.navOpen;
+      this.isNavOpen = !this.isNavOpen;
       this.$bus.$emit("toggle-nav");
-      console.log("button is clicked!");
     }
+  },
+  data() {
+    return {
+      isNavOpen: false,
+      activeItem: "Dashboard"
+    };
+  },
+  mounted() {
+    this.$bus.$on("select-item", event => {
+      console.log(event);
+      this.activeItem = event;
+    });
   }
 };
 </script>
@@ -40,17 +45,24 @@ export default {
 @import "../../assets/scripts/css/styles.scss";
 
 #nav {
-  width: 3.5em;
-  min-width: 3.5em;
-  padding-top: 5px;
+  width: 3.3em;
+  min-width: 3.3em;
+  padding-top: 8px;
+  transition-duration: 0.6s;
+  text-transform: uppercase;
   background-color: $layout-gray;
 
   i {
     cursor: pointer;
     padding: 0.1em;
-    padding-right: 0.5em;
+    padding-right: 0.6em;
+    padding-bottom: 0.3em;
     font-size: 1.5em;
-    color: $layout-white;
+    color: orangered;
+  }
+
+  &.nav-open {
+    width: 12.5em;
   }
 }
 </style>

@@ -14,6 +14,16 @@ import { getZero, getTimeSuffix } from "../../assets/scripts/js/app.js";
 
 export default {
   name: "Clock",
+  methods: {
+    updateDateTime() {
+      let now = new Date();
+      this.hours = now.getHours();
+      this.minutes = getZero(now.getMinutes());
+      this.seconds = getZero(now.getSeconds());
+      this.suffix = getTimeSuffix(this.hours);
+      this.hours = this.hours % 12 || 12;
+    }
+  },
   data() {
     return {
       hours: 0,
@@ -27,16 +37,6 @@ export default {
   },
   beforeDestroy() {
     clearInterval(this.$options.interval);
-  },
-  methods: {
-    updateDateTime() {
-      let now = new Date();
-      this.hours = now.getHours();
-      this.minutes = getZero(now.getMinutes());
-      this.seconds = getZero(now.getSeconds());
-      this.suffix = getTimeSuffix(this.hours);
-      this.hours = this.hours % 12 || 12;
-    }
   }
 };
 </script>

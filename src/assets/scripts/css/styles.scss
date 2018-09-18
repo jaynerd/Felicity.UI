@@ -49,16 +49,21 @@ body {
     flex-direction: row;
 }
 
-.flex-end{
+.flex-end {
     display: flex;
     justify-content: flex-end;
+}
+
+.flex-space {
+    display: flex;
+    align-content: space-between;
 }
 
 .flex-1 {
     flex: 1;
 }
 
-.flex-4{
+.flex-4 {
     flex: 4;
 }
 
