@@ -3,7 +3,7 @@
         <app-header/>
         <section class='vm hbox flex'>
             <app-nav/>
-            <app-board class='flex-1'/>
+            <app-board class='flex flex-1'/>
         </section>
         <app-footer/>
     </div>

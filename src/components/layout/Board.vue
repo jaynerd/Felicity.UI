@@ -1,11 +1,17 @@
 <template>
-    <div id='board'>
+    <div id='board' class="flex">
+        <app-sub-board/>
     </div>
 </template>
 
 <script>
+import SubBoard from "./SubBoard.vue";
+
 export default {
-  name: "Board"
+  name: "Board",
+  components: {
+    "app-sub-board": SubBoard
+  }
 };
 </script>
 

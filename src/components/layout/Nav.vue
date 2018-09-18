@@ -34,7 +34,6 @@ export default {
   },
   mounted() {
     this.$bus.$on("select-item", event => {
-      console.log(event);
       this.activeItem = event;
     });
   }
@@ -45,8 +44,8 @@ export default {
 @import "../../assets/scripts/css/styles.scss";
 
 #nav {
-  width: 3.3em;
-  min-width: 3.3em;
+  width: 3.1em;
+  min-width: 3.1em;
   padding-top: 8px;
   transition-duration: 0.6s;
   text-transform: uppercase;
@@ -55,7 +54,7 @@ export default {
   i {
     cursor: pointer;
     padding: 0.1em;
-    padding-right: 0.6em;
+    padding-right: 0.5em;
     padding-bottom: 0.3em;
     font-size: 1.5em;
     color: orangered;

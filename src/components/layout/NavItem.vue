@@ -41,10 +41,10 @@ export default {
   border-width: 0.05em;
   border-image: linear-gradient(
       to right,
-      rgba(255, 255, 255, 0.7) 0%,
-      rgba(255, 255, 255, 0.5) 25%,
+      rgba(255, 255, 255, 0.6) 0%,
+      rgba(255, 255, 255, 0.4) 25%,
       rgba(255, 255, 255, 0.3) 50%,
-      rgba(255, 255, 255, 0.1) 75%,
+      rgba(255, 255, 255, 0.2) 75%,
       rgba(255, 255, 255, 0) 100%
     )
     50% 0 100% 0/0 0 1px 1 stretch;
@@ -52,7 +52,7 @@ export default {
   i {
     margin: 0.1em;
     padding: 0.12em;
-    font-size: 2em;
+    font-size: 1.9em;
   }
 
   span {
