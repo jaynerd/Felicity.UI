@@ -46,6 +46,7 @@ body {
       hsla(0, 0%, 100%, 0) 100%
     );
 }
+
 // styles for flex & padding
 .flex {
     display: flex;
@@ -73,6 +74,10 @@ body {
 
 .flex-1 {
     flex: 1;
+}
+
+.flex-3 {
+    flex:3;
 }
 
 .flex-4 {
