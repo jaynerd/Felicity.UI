@@ -64,6 +64,6 @@ export default {
 }
 
 .active-item {
-  background-color: #1dacff8a;
+  background-color: $layout-light-blue;
 }
 </style>
