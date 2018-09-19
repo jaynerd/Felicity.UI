@@ -1,6 +1,8 @@
 <template>
-    <div id='footer' class='cc flex'>
-        <div class='sc'>Copyright &copy; {{new Date().getFullYear()}} Team SDM, All rights reserved.</div>
+    <div id='footer' class='flex content-center'>
+        <div class='self-center'>
+            Copyright &copy; {{new Date().getFullYear()}} Team SDM, All rights reserved.
+        </div>
     </div>
 </template>
 
@@ -15,9 +17,9 @@ export default {
 
 #footer {
   height: 3em;
-  background-color: $layout-white;
   font-weight: 300;
   font-family: "Segoe UI", sans-serif;
+  background-color: $layout-light;
   text-transform: uppercase;
   white-space: nowrap;
 }

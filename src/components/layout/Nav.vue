@@ -52,12 +52,12 @@ export default {
   background-color: $layout-dark;
 
   i {
+    cursor: pointer;
     font-size: 1.5em;
     padding: 0.1em;
     padding-right: 0.5em;
     padding-bottom: 0.3em;
     color: orangered;
-    cursor: pointer;
   }
 
   &.nav-open {

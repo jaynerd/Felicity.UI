@@ -1,7 +1,7 @@
 <template>
-    <div id='nav-item' :class="{'hbox flex-space': true, 'active-item': getActiveItem()}" @click='selectItem()'>
+    <div id='nav-item' :class="{'flex-row flex-space': true, 'active-item': getActiveItem()}" @click='selectItem()'>
         <i class='material-icons'>{{icon}}</i>
-        <span class="sc" v-if="isNavOpen">{{name}}</span>
+        <span class='self-center' v-if='isNavOpen'>{{name}}</span>
     </div>
 </template>
 
@@ -35,7 +35,7 @@ export default {
 
 #nav-item {
   cursor: pointer;
-  color: $layout-white;
+  color: $layout-light;
 
   border-style: solid;
   border-width: 0.05em;
@@ -56,14 +56,14 @@ export default {
   }
 
   span {
-    padding-left: 0.5em;
     font-size: 1.4em;
     font-weight: 300;
     font-family: "Rajdhani", sans-serif;
+    padding-left: 0.5em;
   }
 }
 
 .active-item {
-  background-color: $layout-light-blue;
+  background-color: $layout-highlight;
 }
 </style>

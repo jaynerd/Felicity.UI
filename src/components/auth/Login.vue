@@ -1,18 +1,18 @@
 <template>
-    <div id="login" class="vm cc vbox">
-        <div id="login-box" class="sc vbox">
-            <h3 class="sc flex-1 clip">Access Denied</h3>
-            <h2 class="sc flex-1">Please Login Below</h2>
-            <div id="input-area" class="sc vbox flex-3">
-                <i class="sc material-icons">account_circle</i>
-                <div id="input-text-area" class="vbox">
-                    <div id="input-text" class="flex-space sc">
-                        <h4 class="sc flex-1">ID:</h4>
-                        <input class="sc flex-1" type="text"/>
+    <div id="login" class="view-max flex-column content-center">
+        <div id="login-box" class="flex-column self-center">
+            <h3 class="flex-1 self-center clip">Access Denied</h3>
+            <h2 class="flex-1 self-center">Please Login Below</h2>
+            <div id="input-box" class="flex-column flex-3 self-center">
+                <i class="self-center material-icons">account_circle</i>
+                <div id="input-text-box" class="flex-column">
+                    <div id="input-text" class="flex-space self-center">
+                        <h4 class="flex-1 self-center">ID:</h4>
+                        <input class="flex-1 self-center" type="text"/>
                     </div>
-                    <div id="input-text" class="flex-space sc">
-                        <h4 class="sc flex-1">PW:</h4>
-                        <input class="sc flex-1" type="password"/>
+                    <div id="input-text" class="flex-space self-center">
+                        <h4 class="flex-1 self-center">PW:</h4>
+                        <input class="flex-1 self-center" type="password"/>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@ export default {
 @import "../../assets/scripts/css/styles.scss";
 
 #login {
-  background-color: $layout-gray;
+  background-color: $layout-dark;
 
   #login-box {
     width: 50%;
@@ -53,35 +53,35 @@ export default {
       font-size: 3em;
     }
 
-    h4 {
-      color: #ddd;
-      font-family: "Rajdhani", sans-serif;
-    }
-
-    #input-area {
+    #input-box {
       width: 70%;
       padding: 2em;
       padding-top: 1em;
       margin-bottom: 2em;
       border-radius: 10px;
-      background-color: $layout-dark-turquoise;
+      background-color: $layout-turquoise;
 
       i {
-        color: white;
         font-size: 6em;
+        color: $layout-light;
       }
 
-      input {
-        height: 1.5em;
-      }
-
-      #input-text {
-        width: 13em;
-        margin-right: 2.2em;
-      }
-
-      #input-text-area {
+      #input-text-box {
         margin-top: 1em;
+
+        #input-text {
+          width: 13em;
+          margin-right: 2.2em;
+
+          h4 {
+            color: $layout-light;
+            font-family: "Rajdhani", sans-serif;
+          }
+
+          input {
+            height: 1.5em;
+          }
+        }
       }
     }
   }

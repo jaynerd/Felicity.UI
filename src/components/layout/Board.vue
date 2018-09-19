@@ -1,6 +1,6 @@
 <template>
-    <div id='board' class="flex flex-1">
-        <app-sub-board/>
+    <div id='board' class='flex flex-1'>
+        <app-sub-board name='Dashboard'/>
     </div>
 </template>
 
@@ -14,11 +14,3 @@ export default {
   }
 };
 </script>
-
-<style lang='scss' scoped>
-@import "../../assets/scripts/css/styles.scss";
-
-#board {
-  background-color: $layout-dark-turquoise;
-}
-</style>

@@ -1,32 +1,37 @@
 <template>
-    <div id="sub-board" class="vbox flex-1">
+    <div id='sub-board' class='flex-column flex-1'>
         <h3>{{title}}</h3>
-        <div id="content" class="flex-1">
-            <app-dashboard v-if="title === 'Dashboard'"/>
+        <div id='content' class='flex-1'>
+            <app-report v-if="title === 'Report'"/>
             <app-profile v-else-if="title === 'Profile'"/>
-            <app-workspace v-else-if="title === 'Workspace'"/>
-            <app-report v-else-if="title === 'Report'"/>
             <app-settings v-else-if="title === 'Settings'"/>
+            <app-dashboard v-else-if="title === 'Dashboard'"/>
+            <app-workspace v-else-if="title === 'Workspace'"/>
         </div>
     </div>
 </template>
 
 <script>
-import Dashboard from "../contents/Dashboard.vue";
-import Profile from "../contents/Profile.vue";
-import Workspace from "../contents/Workspace.vue";
 import Report from "../contents/Report.vue";
+import Profile from "../contents/Profile.vue";
 import Settings from "../contents/Settings.vue";
+import Dashboard from "../contents/Dashboard.vue";
+import Workspace from "../contents/Workspace.vue";
 
 export default {
   name: "SubBoard",
-  props: ["title"],
+  props: ["name"],
   components: {
-    "app-dashboard": Dashboard,
-    "app-profile": Profile,
-    "app-workspace": Workspace,
     "app-report": Report,
-    "app-settings": Settings
+    "app-profile": Profile,
+    "app-settings": Settings,
+    "app-dashboard": Dashboard,
+    "app-workspace": Workspace
+  },
+  data() {
+    return {
+      title: this.name
+    };
   },
   mounted() {
     this.$bus.$on("select-item", event => {
@@ -36,15 +41,14 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang='scss' scoped>
 @import "../../assets/scripts/css/styles.scss";
 
 #sub-board {
-  background: rgb(60, 60, 60);
+  background: rgb(65, 65, 65);
 
   h3 {
     margin: 0;
-    color: #fff;
     padding: 0.2em;
     padding-top: 0.3em;
     padding-left: 1em;
@@ -52,12 +56,14 @@ export default {
     font-weight: 100;
     font-family: "Aldrich", sans-serif;
     text-transform: uppercase;
+    color: $layout-light;
   }
 
   #content {
     margin: 0px 10px 10px 10px;
-    border: 3px solid #eee;
-    background-color: #fff;
+    border: 0.2em outset #ddd;
+    box-shadow: $layout-shadow;
+    background-color: $layout-light;
   }
 }
 </style>

@@ -1,11 +1,8 @@
 $layout-light: white;
 $layout-dark: rgb(45, 45, 45);
+$layout-turquoise: rgb(15, 40, 50);
+$layout-highlight: rgb(65, 170, 245);
 $layout-shadow: 0px 2px 5px 0px rgba(50, 50, 50, 0.75);
-
-$layout-white: white;
-$layout-gray: rgb(45, 45, 45);
-$layout-light-blue:#1dacff8a;
-$layout-dark-turquoise: rgb(15, 40, 50);
 
 html,
 body {
@@ -88,35 +85,4 @@ body {
       hsla(0, 0%, 100%, 0.3) 80%,
       hsla(0, 0%, 100%, 0) 100%
     );
-}
-
-
-
-
-
-
-
-
-
-.cc {
-    justify-content: center;
-}
-
-.sc {
-    align-self: center;
-}
-
-.vm {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.vbox {
-    display: flex;
-    flex-direction: column;
-}
-.hbox {
-    display: flex;
-    flex-direction: row;
 }
