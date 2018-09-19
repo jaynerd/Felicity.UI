@@ -15,6 +15,14 @@
                         <input class="flex-1 self-center" type="password"/>
                     </div>
                 </div>
+                <div id="button-box" class="flex-space self-center">
+                    <button class="login" type="success">
+                        Log in
+                    </button>
+                    <button class="signup" type="button">
+                        Sign up
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -49,8 +57,9 @@ export default {
     }
 
     h3 {
-      padding-top: 0.5em;
       font-size: 3em;
+      padding-top: 0.5em;
+      background-color: red;
     }
 
     #input-box {
@@ -62,7 +71,7 @@ export default {
       background-color: $layout-turquoise;
 
       i {
-        font-size: 6em;
+        font-size: 5.5em;
         color: $layout-light;
       }
 
@@ -80,7 +89,47 @@ export default {
 
           input {
             height: 1.5em;
+            background-color: #eee;
           }
+        }
+      }
+
+      #button-box {
+        button {
+          width: 5em;
+          height: 2em;
+          color: #333;
+          padding: 10px 20px;
+          margin: 1em 1.5em 0em 1.5em;
+          border: 1px solid #ddd;
+          background-color: $layout-light;
+          border-radius: 4px;
+          font-size: 14px;
+          cursor: pointer;
+        }
+
+        button:active {
+          transform: translateY(1px);
+        }
+
+        .login {
+          padding: 0;
+          color: #fff;
+          background-color: #13ce66;
+        }
+
+        .login:hover {
+          background-color: #49fa98;
+        }
+
+        .signup {
+          padding: 0;
+          color: #fff;
+          background-color: #50bfff;
+        }
+
+        .signup:hover {
+          background-color: #8ed5ff;
         }
       }
     }

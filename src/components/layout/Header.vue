@@ -7,7 +7,7 @@
             <h1 class='self-center clip'>Felicity</h1>
         </div>
         <div class='flex flex-1 content-center'>
-            <h3 class='self-center'>Login Team #N</h3>
+            <h3 class='self-center'>Logout Team #N</h3>
         </div>
     </div>
 </template>
@@ -29,6 +29,7 @@ export default {
 #header {
   height: 4em;
   z-index: 999;
+  min-width: 680px;
   white-space: nowrap;
   box-shadow: $layout-shadow;
   background-color: $layout-light;
