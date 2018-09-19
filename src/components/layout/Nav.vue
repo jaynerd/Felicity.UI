@@ -1,14 +1,14 @@
 <template>
-    <div id='nav' :class="{'vbox gradient-border': true, 'nav-open': isNavOpen}">
+    <div id='nav' :class="{'flex-column gradient-border': true, 'nav-open': isNavOpen}">
         <div class='flex-end' @click='toggleNav()'>
-            <i v-if="isNavOpen" class='material-icons'>arrow_back_ios</i>
+            <i v-if='isNavOpen' class='material-icons'>arrow_back_ios</i>
             <i v-else class='material-icons'>arrow_forward_ios</i>
         </div>
-        <app-nav-item class='' icon='dashboard' name='Dashboard' :active="activeItem"/>
-        <app-nav-item class='' icon='person' name='Profile' :active="activeItem"/>
-        <app-nav-item class='' icon='work' name='Workspace' :active="activeItem"/>
-        <app-nav-item class='' icon='bar_chart' name='Report' :active="activeItem"/>
-        <app-nav-item class='' icon='settings' name='Settings' :active="activeItem"/>
+        <app-nav-item icon='dashboard' name='Dashboard' :active='activeItem'/>
+        <app-nav-item icon='person' name='Profile' :active='activeItem'/>
+        <app-nav-item icon='work' name='Workspace' :active='activeItem'/>
+        <app-nav-item icon='bar_chart' name='Report' :active='activeItem'/>
+        <app-nav-item icon='settings' name='Settings' :active='activeItem'/>
     </div>
 </template>
 
@@ -46,18 +46,18 @@ export default {
 #nav {
   width: 3.1em;
   min-width: 3.1em;
-  padding-top: 8px;
+  padding-top: 0.4em;
   transition-duration: 0.6s;
   text-transform: uppercase;
-  background-color: $layout-gray;
+  background-color: $layout-dark;
 
   i {
-    cursor: pointer;
+    font-size: 1.5em;
     padding: 0.1em;
     padding-right: 0.5em;
     padding-bottom: 0.3em;
-    font-size: 1.5em;
     color: orangered;
+    cursor: pointer;
   }
 
   &.nav-open {

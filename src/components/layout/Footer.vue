@@ -17,7 +17,7 @@ export default {
   height: 3em;
   background-color: $layout-white;
   font-weight: 300;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", sans-serif;
   text-transform: uppercase;
   white-space: nowrap;
 }

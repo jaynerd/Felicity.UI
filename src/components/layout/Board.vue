@@ -1,5 +1,5 @@
 <template>
-    <div id='board' class="flex">
+    <div id='board' class="flex flex-1">
         <app-sub-board/>
     </div>
 </template>

@@ -1,7 +1,7 @@
 {
   "name": "felicity.ui",
   "version": "1.0.0",
-  "description": "SDM Project for managing team's happiness",
+  "description": "A web application for managing team's overall level of happiness",
   "author": "Namyoon Kim <dev.jaynerd@gmail.com>",
   "private": true,
   "scripts": {

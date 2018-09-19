@@ -1,6 +1,8 @@
 # felicity.ui
 
-> SDM Project for managing team's happiness
+> This web application provides a solution to collect each team member's
+> level of happiness on regular basis for further analyzation to maximize
+> team's performance. 
 
 ## Build Setup
 

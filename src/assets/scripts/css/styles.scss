@@ -1,10 +1,12 @@
-// variables
+$layout-light: white;
+$layout-dark: rgb(45, 45, 45);
+$layout-shadow: 0px 2px 5px 0px rgba(50, 50, 50, 0.75);
+
 $layout-white: white;
 $layout-gray: rgb(45, 45, 45);
 $layout-light-blue:#1dacff8a;
 $layout-dark-turquoise: rgb(15, 40, 50);
 
-// styles by element
 html,
 body {
     margin: 0;
@@ -13,65 +15,34 @@ body {
     min-width: 600px;
 }
 
-// styles by class
-.vm {
+.view-max {
     margin: 0;
     width: 100%;
     height: 100%;
 }
 
-.cc {
-    justify-content: center;
-}
-
-.sc {
-    align-self: center;
-}
-
-.clip {
-    color: transparent;
-    background-clip: text;
-    background-color: black;
-    -webkit-background-clip: text;
-    text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.6);
-}
-
-.gradient-border{
-    background-size: 0.1em 100%;
-    background-position-x: 100%;
-    background-repeat: no-repeat;
-    background-image: linear-gradient(
-      to bottom,
-      hsla(0, 0%, 100%, 0) 0%,
-      hsla(0, 0%, 100%, 0.5) 20%,
-      hsla(0, 0%, 100%, 0.3) 80%,
-      hsla(0, 0%, 100%, 0) 100%
-    );
-}
-
-// styles for flex & padding
 .flex {
     display: flex;
 }
 
-.vbox {
-    display: flex;
-    flex-direction: column;
-}
-
-.hbox {
+.flex-row {
     display: flex;
     flex-direction: row;
 }
 
-.flex-end {
+.flex-column {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
 }
 
 .flex-space {
     display: flex;
     align-content: space-between;
+}
+
+.flex-end {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .flex-1 {
@@ -90,6 +61,62 @@ body {
     flex: 6;
 }
 
-.pad-10 {
-    padding: 10px;
+.self-center {
+    align-self: center;
+}
+
+.content-center {
+    justify-content: center;
+}
+
+.clip {
+    color: transparent;
+    background-clip: text;
+    background-color: black;
+    -webkit-background-clip: text;
+    text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.6);
+}
+
+.gradient-border {
+    background-size: 0.1em 100%;
+    background-position-x: 100%;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(
+      to bottom,
+      hsla(0, 0%, 100%, 0) 0%,
+      hsla(0, 0%, 100%, 0.5) 20%,
+      hsla(0, 0%, 100%, 0.3) 80%,
+      hsla(0, 0%, 100%, 0) 100%
+    );
+}
+
+
+
+
+
+
+
+
+
+.cc {
+    justify-content: center;
+}
+
+.sc {
+    align-self: center;
+}
+
+.vm {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.vbox {
+    display: flex;
+    flex-direction: column;
+}
+.hbox {
+    display: flex;
+    flex-direction: row;
 }

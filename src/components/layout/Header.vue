@@ -1,13 +1,13 @@
 <template>
-    <div id='header' class='hbox'>
-        <div class='cc flex flex-1'>
-            <app-clock class='sc'/>
+    <div id='header' class='flex-row'>
+        <div class='flex flex-1 content-center'>
+            <app-clock class='self-center'/>
         </div>
-        <div class='cc flex flex-4 pad-10'>
-            <h1 class='sc clip'>Felicity</h1>
+        <div class='flex flex-4 content-center'>
+            <h1 class='self-center clip'>Felicity</h1>
         </div>
-        <div class='cc flex flex-1'>
-            <h3 class='sc'>Login Team #3</h3>
+        <div class='flex flex-1 content-center'>
+            <h3 class='self-center'>Login Team #N</h3>
         </div>
     </div>
 </template>
@@ -28,10 +28,10 @@ export default {
 
 #header {
   height: 4em;
-  z-index: 99;
-  background-color: $layout-white;
-  box-shadow: 0px 2px 5px 0px rgba(50, 50, 50, 0.75);
+  z-index: 999;
   white-space: nowrap;
+  box-shadow: $layout-shadow;
+  background-color: $layout-light;
 
   h1 {
     margin: 0;

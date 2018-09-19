@@ -1,9 +1,9 @@
 <template>
-    <div id='main' class='vm vbox'>
+    <div id='main' class='view-max flex-column'>
         <app-header/>
-        <section v-if="authenticated" class='vm hbox flex'>
+        <section v-if='authenticated' class='view-max flex-row'>
             <app-nav/>
-            <app-board class='flex flex-1'/>
+            <app-board/>
         </section>
         <app-login v-else/>
         <app-footer/>
@@ -11,30 +11,25 @@
 </template>
 
 <script>
-import Login from "./auth/Login.vue";
-import Header from "./layout/Header.vue";
 import Nav from "./layout/Nav.vue";
+import Login from "./auth/Login.vue";
 import Board from "./layout/Board.vue";
+import Header from "./layout/Header.vue";
 import Footer from "./layout/Footer.vue";
 
 export default {
   name: "Main",
   components: {
-    "app-login": Login,
-    "app-header": Header,
     "app-nav": Nav,
+    "app-login": Login,
     "app-board": Board,
+    "app-header": Header,
     "app-footer": Footer
   },
   data() {
     return {
-      authenticated: false
+      authenticated: true
     };
-  },
-  mounted() {
-    this.$bus.$on("toggle-nav", $event => {
-      console.log("Event triggered", $event);
-    });
   }
 };
 </script>
