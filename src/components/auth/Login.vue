@@ -19,7 +19,7 @@
                     <button class="login" type="success" @click="access()">
                         Log in
                     </button>
-                    <button class="signup" type="button">
+                    <button class="signup" type="button" @click="signup()">
                         Sign up
                     </button>
                 </div>
@@ -43,6 +43,12 @@ export default {
         alert("Login successful");
         this.$bus.$emit("log-in");
       });
+    },
+    signup() {
+      Create(this.axios, this.credential, response => {
+        alert("Account registered");
+        // this.$bus.$emit("sign-up");
+      });
     }
   },
   data() {
@@ -57,6 +63,13 @@ export default {
 
 function Login(axios, credential, callback) {
   axios.post("api/auth/login", credential).then(axiosResponse => {
+    let resp = axiosResponse.data;
+    resp === true ? callback(resp) : alert(resp);
+  });
+}
+
+function Create(axios, credential, callback) {
+  axios.post("api/user/createuser", credential).then(axiosResponse => {
     let resp = axiosResponse.data;
     resp === true ? callback(resp) : alert(resp);
   });
