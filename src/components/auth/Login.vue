@@ -40,9 +40,8 @@ export default {
     },
     access() {
       Login(this.axios, this.credential, response => {
-        if (response.data) {
-          this.$bus.$emit("log-in");
-        }
+        alert("Login successful");
+        this.$bus.$emit("log-in");
       });
     }
   },
@@ -59,7 +58,7 @@ export default {
 function Login(axios, credential, callback) {
   axios.post("api/auth/login", credential).then(axiosResponse => {
     let resp = axiosResponse.data;
-    callback(resp);
+    resp === true ? callback(resp) : alert(resp);
   });
 }
 </script>
