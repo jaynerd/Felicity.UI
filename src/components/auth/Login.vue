@@ -2,8 +2,8 @@
     <div id="login" class="view-max flex-column content-center">
         <div id="login-box" class="flex-column self-center">
             <h3 class="flex-1 self-center clip">Access Denied</h3>
-            <h2 class="flex-1 self-center">Please Login Below</h2>
-            <div id="input-box" class="flex-column flex-3 self-center">
+            <h2 class="flex-1 self-center">Please <span style="color:red;">Login</span> Below</h2>
+            <div id="input-box" class="flex-column flex-3 self-center content-center">
                 <i class="self-center material-icons">account_circle</i>
                 <div id="input-text-box" class="flex-column">
                     <div id="input-text" class="flex-space self-center">
@@ -74,8 +74,8 @@ function Login(axios, credential, callback) {
   background-color: $layout-dark;
 
   #login-box {
-    width: 50%;
-    height: 80%;
+    width: 30em;
+    height: 30em;
     border-radius: 20px;
     background-color: #ddd;
 
@@ -92,11 +92,11 @@ function Login(axios, credential, callback) {
     h3 {
       font-size: 3em;
       padding-top: 0.5em;
-      background-color: red;
+      background-color: black;
     }
 
     #input-box {
-      width: 70%;
+      width: 15em;
       padding: 2em;
       padding-top: 1em;
       margin-bottom: 2em;
