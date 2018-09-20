@@ -30,6 +30,11 @@ export default {
     return {
       authenticated: false
     };
+  },
+  mounted() {
+    this.$bus.$on("log-in", () => {
+      this.authenticated = true;
+    });
   }
 };
 </script>

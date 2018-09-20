@@ -39,14 +39,11 @@ export default {
       this.credential.password = value;
     },
     access() {
-      debugger;
       Login(this.axios, this.credential, response => {
-        if (response) {
-          alert(response);
+        if (response.data) {
+          this.$bus.$emit("log-in");
         }
       });
-      // this.credential.username = "";
-      // this.credential.password = "";
     }
   },
   data() {
