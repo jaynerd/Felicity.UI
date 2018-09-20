@@ -8,15 +8,15 @@
                 <div id="input-text-box" class="flex-column">
                     <div id="input-text" class="flex-space self-center">
                         <h4 class="flex-1 self-center">ID:</h4>
-                        <input class="flex-1 self-center" type="text"/>
+                        <input class="flex-1 self-center" type="text" v-model="credential.username" @input="setUsername($event.target.value)"/>
                     </div>
                     <div id="input-text" class="flex-space self-center">
                         <h4 class="flex-1 self-center">PW:</h4>
-                        <input class="flex-1 self-center" type="password"/>
+                        <input class="flex-1 self-center" type="password" v-model="credential.password" @input="setPassword($event.target.value)"/>
                     </div>
                 </div>
                 <div id="button-box" class="flex-space self-center">
-                    <button class="login" type="success">
+                    <button class="login" type="success" @click="access()">
                         Log in
                     </button>
                     <button class="signup" type="button">
@@ -30,8 +30,41 @@
 
 <script>
 export default {
-  name: "Login"
+  name: "Login",
+  methods: {
+    setUsername(value) {
+      this.credential.username = value;
+    },
+    setPassword(value) {
+      this.credential.password = value;
+    },
+    access() {
+      debugger;
+      Login(this.axios, this.credential, response => {
+        if (response) {
+          alert(response);
+        }
+      });
+      // this.credential.username = "";
+      // this.credential.password = "";
+    }
+  },
+  data() {
+    return {
+      credential: {
+        username: "",
+        password: ""
+      }
+    };
+  }
 };
+
+function Login(axios, credential, callback) {
+  axios.post("api/auth/login", credential).then(axiosResponse => {
+    let resp = axiosResponse.data;
+    callback(resp);
+  });
+}
 </script>
 
 <style lang="scss" scoped>

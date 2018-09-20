@@ -29,7 +29,7 @@ export default {
 #header {
   height: 4em;
   z-index: 999;
-  min-width: 680px;
+  min-width: 690px;
   white-space: nowrap;
   box-shadow: $layout-shadow;
   background-color: $layout-light;
