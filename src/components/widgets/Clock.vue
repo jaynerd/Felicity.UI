@@ -10,17 +10,15 @@
 </template>
 
 <script>
-import { getZero, getTimeSuffix } from "../../assets/scripts/js/app.js";
-
 export default {
   name: "Clock",
   methods: {
     updateDateTime() {
       let now = new Date();
       this.hours = now.getHours();
-      this.minutes = getZero(now.getMinutes());
-      this.seconds = getZero(now.getSeconds());
-      this.suffix = getTimeSuffix(this.hours);
+      this.minutes = this.GetZero(now.getMinutes());
+      this.seconds = this.GetZero(now.getSeconds());
+      this.suffix = this.GetTimeSuffix(this.hours);
       this.hours = this.hours % 12 || 12;
     }
   },

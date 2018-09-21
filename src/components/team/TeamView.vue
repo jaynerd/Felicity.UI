@@ -4,6 +4,9 @@
         <button @click="openTeamBoxView()">
             return
         </button>
+        <button @click="showModal()">
+            modal
+        </button>
     </div>
 </template>
 
@@ -13,6 +16,20 @@ export default {
   methods: {
     openTeamBoxView() {
       this.$bus.$emit("team-box-view");
+    },
+    showModal() {
+      this.CreateModal(
+        "Header",
+        "Desc",
+        "Submit",
+        () => {
+          alert("Submitted");
+        },
+        "Cancel",
+        () => {
+          alert("Canceled");
+        }
+      );
     }
   }
 };

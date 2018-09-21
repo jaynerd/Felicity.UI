@@ -7,6 +7,7 @@
         </section>
         <app-login v-else/>
         <app-footer/>
+        <div id="modal-anchor" class="flex"/>
     </div>
 </template>
 
@@ -28,7 +29,7 @@ export default {
   },
   data() {
     return {
-      authenticated: true
+      authenticated: false
     };
   },
   mounted() {
