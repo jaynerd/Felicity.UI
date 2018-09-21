@@ -64,7 +64,8 @@ export default {
 function Login(axios, credential, callback) {
   axios.post("api/auth/login", credential).then(axiosResponse => {
     let resp = axiosResponse.data;
-    resp === true ? callback(resp) : alert(resp);
+    debugger;
+    resp.userName != null ? callback(resp) : alert(resp);
   });
 }
 

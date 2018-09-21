@@ -19,7 +19,7 @@ Object.defineProperties(Vue.prototype, {
 })
 
 Vue.prototype.axios = axios.create({
-  baseURL: "https://ey2hslj27c.execute-api.ap-southeast-2.amazonaws.com/Prod/"
+  baseURL: "http://localhost:50616/"
 });
 
 new Vue({
