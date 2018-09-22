@@ -1,5 +1,5 @@
 <template>
-    <div id='footer' class='flex content-center'>
+    <div id='footer' class='flex-box'>
         <div class='self-center'>
             Copyright &copy; {{new Date().getFullYear()}} Team SDM, All rights reserved.
         </div>
@@ -17,9 +17,9 @@ export default {
 
 #footer {
   height: 3em;
-  font-weight: 300;
+  font-weight: 400;
   font-family: "Segoe UI", sans-serif;
-  background-color: $layout-light;
+  background-color: $app-light;
   text-transform: uppercase;
   white-space: nowrap;
 }

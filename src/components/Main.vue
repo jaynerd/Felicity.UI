@@ -7,7 +7,7 @@
         </section>
         <app-login v-else/>
         <app-footer/>
-        <div id="modal-anchor" class="flex"/>
+        <div id='modal-anchor' class='flex'/>
     </div>
 </template>
 
@@ -33,7 +33,7 @@ export default {
     };
   },
   mounted() {
-    this.$bus.$on("log-in", () => {
+    this.$bus.$on("logging-in", () => {
       this.authenticated = true;
     });
   }

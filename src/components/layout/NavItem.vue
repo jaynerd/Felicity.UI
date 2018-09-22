@@ -11,7 +11,7 @@ export default {
   props: ["icon", "name", "active"],
   methods: {
     selectItem() {
-      this.$bus.$emit("select-item", this.name);
+      this.$bus.$emit("item-selected", this.name);
     },
     getActiveItem() {
       return this.name === this.active;
@@ -23,7 +23,7 @@ export default {
     };
   },
   mounted() {
-    this.$bus.$on("toggle-nav", () => {
+    this.$bus.$on("nav-toggled", () => {
       this.isNavOpen = !this.isNavOpen;
     });
   }
@@ -35,7 +35,7 @@ export default {
 
 #nav-item {
   cursor: pointer;
-  color: $layout-light;
+  color: $app-light;
 
   border-style: solid;
   border-width: 0.05em;
@@ -64,6 +64,6 @@ export default {
 }
 
 .active-item {
-  background-color: $layout-highlight;
+  background-color: $app-highlight;
 }
 </style>

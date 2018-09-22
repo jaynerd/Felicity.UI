@@ -1,11 +1,11 @@
 <template>
     <div id='clock'>
         <div id='hours'>
-            <span id='suffix' v-text='suffix'></span>
-            <span v-text='hours'></span>
+            <span id='suffix' v-text='suffix'/>
+            <span v-text='hours'/>
         </div>
-        <div id='minutes' v-text='minutes'></div>
-        <div id='seconds' v-text='seconds'></div>
+        <div id='minutes' v-text='minutes'/>
+        <div id='seconds' v-text='seconds'/>
     </div>
 </template>
 
@@ -43,8 +43,6 @@ export default {
 @import "../../assets/scripts/css/styles.scss";
 
 #clock {
-  margin: 8px;
-
   #hours,
   #minutes,
   #seconds {
@@ -62,7 +60,7 @@ export default {
 #suffix {
   top: -4px;
   left: -5px;
-  font-size: 0.7rem;
+  font-size: 0.35em;
   position: absolute;
 }
 </style>

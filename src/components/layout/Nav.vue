@@ -23,7 +23,7 @@ export default {
   methods: {
     toggleNav() {
       this.isNavOpen = !this.isNavOpen;
-      this.$bus.$emit("toggle-nav");
+      this.$bus.$emit("nav-toggled");
     }
   },
   data() {
@@ -33,7 +33,7 @@ export default {
     };
   },
   mounted() {
-    this.$bus.$on("select-item", event => {
+    this.$bus.$on("item-selected", event => {
       this.activeItem = event;
     });
   }
@@ -45,23 +45,31 @@ export default {
 
 #nav {
   width: 3.1em;
-  min-width: 3.1em;
   padding-top: 0.4em;
   transition-duration: 0.6s;
   text-transform: uppercase;
-  background-color: $layout-dark;
+  background-color: $app-dark;
 
   i {
     cursor: pointer;
     font-size: 1.5em;
-    padding: 0.1em;
-    padding-right: 0.5em;
-    padding-bottom: 0.3em;
     color: orangered;
+    padding: 0.2em 0.5em 0.4em 0em;
   }
 
   &.nav-open {
     width: 12.5em;
+  }
+
+  @media screen and (max-width: $app-breakpoint) {
+    i {
+      color: gray;
+      padding: 0.2em 0.45em 0.4em 0em;
+    }
+
+    &.nav-open {
+      width: 3.1em;
+    }
   }
 }
 </style>

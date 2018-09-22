@@ -1,25 +1,25 @@
 <template>
-    <div id="login" class="view-max flex-column content-center">
-        <div id="login-box" class="flex-column self-center">
-            <h3 class="flex-1 self-center clip">Access Denied</h3>
-            <h2 class="flex-1 self-center">Please <span style="color:red;">Login</span> Below</h2>
-            <div id="input-box" class="flex-column flex-3 self-center content-center">
-                <i class="self-center material-icons">account_circle</i>
-                <div id="input-text-box" class="flex-column">
-                    <div id="input-text" class="flex-space self-center">
-                        <h4 class="flex-1 self-center">ID:</h4>
-                        <input class="flex-1 self-center" type="text" v-model="credential.username" @input="setUsername($event.target.value)"/>
+    <div id='login' class='view-max flex-column content-center'>
+        <div id='login-box' class='flex-column self-center'>
+            <h3 class='flex-1 self-center clip'>Access Denied</h3>
+            <h2 class='flex-1 self-center'>Please <span style='color:red;'>Login</span> Below</h2>
+            <div id='input-box' class='flex-column flex-3 self-center content-center'>
+                <i class='self-center material-icons'>account_circle</i>
+                <div id='input-text-box' class='flex-column'>
+                    <div id='input-text' class='flex-space self-center'>
+                        <h4 class='flex-1 self-center'>ID:</h4>
+                        <input class='flex-1 self-center' type='text' v-model='credential.username' @input='setUsername($event.target.value)'/>
                     </div>
-                    <div id="input-text" class="flex-space self-center">
-                        <h4 class="flex-1 self-center">PW:</h4>
-                        <input class="flex-1 self-center" type="password" v-model="credential.password" @input="setPassword($event.target.value)"/>
+                    <div id='input-text' class='flex-space self-center'>
+                        <h4 class='flex-1 self-center'>PW:</h4>
+                        <input class='flex-1 self-center' type='password' v-model='credential.password' @input='setPassword($event.target.value)'/>
                     </div>
                 </div>
-                <div id="button-box" class="flex-space self-center">
-                    <button class="login" type="success" @click="access()">
+                <div id='button-box' class='flex-space self-center'>
+                    <button class='login' type='success' @click='login()'>
                         Log in
                     </button>
-                    <button class="signup" type="button" @click="signup()">
+                    <button class='signup' type='button' @click='signup()'>
                         Sign up
                     </button>
                 </div>
@@ -38,16 +38,16 @@ export default {
     setPassword(value) {
       this.credential.password = value;
     },
-    access() {
+    login() {
       Login(this.axios, this.credential, response => {
         alert("Login successful");
-        this.$bus.$emit("log-in");
+        this.$bus.$emit("logging-in");
       });
     },
     signup() {
       Create(this.axios, this.credential, response => {
         alert("Account registered");
-        // this.$bus.$emit("sign-up");
+        // this.$bus.$emit('signing-up');
       });
     }
   },
@@ -64,7 +64,6 @@ export default {
 function Login(axios, credential, callback) {
   axios.post("api/auth/login", credential).then(axiosResponse => {
     let resp = axiosResponse.data;
-    debugger;
     resp.userName != null ? callback(resp) : alert(resp);
   });
 }
@@ -77,11 +76,11 @@ function Create(axios, credential, callback) {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang='scss' scoped>
 @import "../../assets/scripts/css/styles.scss";
 
 #login {
-  background-color: $layout-dark;
+  background-color: $app-dark;
 
   #login-box {
     width: 30em;
@@ -111,11 +110,11 @@ function Create(axios, credential, callback) {
       padding-top: 1em;
       margin-bottom: 2em;
       border-radius: 10px;
-      background-color: $layout-turquoise;
+      background-color: $app-turquoise;
 
       i {
         font-size: 5.5em;
-        color: $layout-light;
+        color: $app-light;
       }
 
       #input-text-box {
@@ -126,7 +125,7 @@ function Create(axios, credential, callback) {
           margin-right: 2.2em;
 
           h4 {
-            color: $layout-light;
+            color: $app-light;
             font-family: "Rajdhani", sans-serif;
           }
 
@@ -145,7 +144,7 @@ function Create(axios, credential, callback) {
           padding: 10px 20px;
           margin: 1em 1.5em 0em 1.5em;
           border: 1px solid #ddd;
-          background-color: $layout-light;
+          background-color: $app-light;
           border-radius: 4px;
           font-size: 14px;
           cursor: pointer;
