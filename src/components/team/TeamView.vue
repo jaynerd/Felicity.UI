@@ -1,6 +1,7 @@
 <template>
     <div id='team-view'>
         <h3>This is team view</h3>
+        <input type="text" placeholder="Set interval"/>
         <button @click='openTeamBoxView()'>
             return
         </button>

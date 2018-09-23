@@ -2,10 +2,15 @@
     <div id='modal' class='view-max'>
         <div id='box' class='flex-column content-center'>
             <div id='header' class='flex-1 self-center'> 
-                <h3><slot name='title' /></h3>
+                <h3><slot name='title'/></h3>
             </div>
             <div id='body' class='flex-4 self-center'>
-                <slot name='body' />
+                <slot name='body'/>
+                <div class="flex-column">
+                    <h3>Q: Are you happy today?</h3>
+                    <input type="text"/>
+                    <app-slider class=""/>
+                </div>
             </div>
             <div id='footer' class='flex-1 self-center'>
                 <button @click='btn1Click'>{{btn1Text}}</button>
@@ -16,8 +21,13 @@
 </template>
 
 <script>
+import Slider from "./Slider.vue";
+
 export default {
   name: "Modal",
+  components: {
+    "app-slider": Slider
+  },
   data() {
     return {
       btn1Text: "",
@@ -73,7 +83,8 @@ export default {
     }
 
     #body {
-      background-color: red;
+      width: 100%;
+      border: 2px solid gray;
     }
 
     #footer {
