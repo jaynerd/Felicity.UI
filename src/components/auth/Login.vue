@@ -40,7 +40,10 @@ export default {
     },
     logIn() {
       LogIn(this.axios, this.credential, response => {
-        alert("Login information verified");
+        localStorage.setItem("userID", response.userId);
+        alert(
+          `Login information for user ${response.userId} has been verified`
+        );
         this.$bus.$emit("logging-in");
       });
     },

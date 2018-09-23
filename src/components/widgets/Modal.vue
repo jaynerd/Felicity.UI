@@ -55,9 +55,13 @@ export default {
     height: 20em;
     position: fixed;
     border-radius: 20px;
-    border: 5px outset darkslategray;
+    border: 5px outset #ddd;
     background-color: $app-main;
-    transform: translateX(-50%) translateY(50%);
+    transform: translate(-50%, 50%);
+    -ms-transform: translate(-50%, 50%);
+    -moz-transform: translate(-50%, 50%);
+    -webkit-transform: translate(-50%, 50%);
+    box-shadow: #000 0 2px 20px;
 
     #header {
       color: $app-main;
