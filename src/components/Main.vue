@@ -7,7 +7,7 @@
         </section>
         <app-login v-else/>
         <app-footer/>
-        <div id='modal-anchor' class='flex'/>
+        <div id='modal-anchor'/>
     </div>
 </template>
 

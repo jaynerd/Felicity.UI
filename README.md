@@ -1,4 +1,4 @@
 # felicity.ui
 
 > This web application provides a solution to collect & analyze
-> each team members' level of happiness regularly.
+> each team members' level of happiness to maximize performance.

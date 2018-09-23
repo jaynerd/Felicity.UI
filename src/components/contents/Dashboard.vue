@@ -1,7 +1,7 @@
 <template>
-    <div id='dashboard' class="flex-column">
+    <div id='dashboard'>
         <h1>Dashboard Contents</h1>
-        <div v-if="!isTeamViewOn" class="flex">
+        <div id='team-list' class="flex-row" v-if="!isTeamViewOn">
             <div v-for="index in teamCount" :key="index">
                 <app-team-box :name="index"/>
             </div>
@@ -24,17 +24,24 @@ export default {
   },
   data() {
     return {
-      teamCount: 5,
+      teamCount: 5, // read from database, length
       isTeamViewOn: false
     };
   },
   mounted() {
-    this.$bus.$on("team-view", () => {
-      this.isTeamViewOn = true;
-    });
-    this.$bus.$on("team-box-view", () => {
-      this.isTeamViewOn = false;
+    this.$bus.$on("toggle-team-view", () => {
+      this.isTeamViewOn = !this.isTeamViewOn;
     });
   }
 };
 </script>
+
+<style lang="scss" scoped>
+@import "../../assets/scripts/css/styles.scss";
+
+#dashboard {
+  #team-list {
+    flex-wrap: wrap;
+  }
+}
+</style>

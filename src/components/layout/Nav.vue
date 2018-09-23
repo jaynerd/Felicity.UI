@@ -1,5 +1,5 @@
 <template>
-    <div id='nav' :class="{'flex-column gradient-border': true, 'nav-open': isNavOpen}">
+    <div id='nav' :class="{'gradient-border': true, 'nav-open': isNavOpen}">
         <div class='flex-end' @click='toggleNav()'>
             <i v-if='isNavOpen' class='material-icons'>arrow_back_ios</i>
             <i v-else class='material-icons'>arrow_forward_ios</i>

@@ -3,14 +3,6 @@ import Modal from "../../../components/widgets/Modal.vue";
 
 export default {
     methods: {
-        GetTimeSuffix: (hours) => {
-            return hours >= 12 ? 'PM' : 'AM';
-        },
-
-        GetZero: (value) => {
-            return (parseInt(value, 10) >= 10 ? '' : '0') + value;
-        },
-
         CreateModal: (title, body, btn1Text, btn1Callback, btn2Text, btn2Callback) => {
             var Dialog = Vue.extend(Modal);
             var dialog = new Dialog({

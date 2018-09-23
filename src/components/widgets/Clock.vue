@@ -16,9 +16,9 @@ export default {
     updateDateTime() {
       let now = new Date();
       this.hours = now.getHours();
-      this.minutes = this.GetZero(now.getMinutes());
-      this.seconds = this.GetZero(now.getSeconds());
-      this.suffix = this.GetTimeSuffix(this.hours);
+      this.minutes = getZero(now.getMinutes());
+      this.seconds = getZero(now.getSeconds());
+      this.suffix = getTimeSuffix(this.hours);
       this.hours = this.hours % 12 || 12;
     }
   },
@@ -37,6 +37,14 @@ export default {
     clearInterval(this.$options.interval);
   }
 };
+
+function getZero(value) {
+  return (parseInt(value, 10) >= 10 ? "" : "0") + value;
+}
+
+function getTimeSuffix(hours) {
+  return hours >= 12 ? "PM" : "AM";
+}
 </script>
 
 <style lang='scss' scoped>

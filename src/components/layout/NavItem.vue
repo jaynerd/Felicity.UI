@@ -1,5 +1,5 @@
 <template>
-    <div id='nav-item' :class="{'flex-row flex-space': true, 'active-item': getActiveItem()}" @click='selectItem()'>
+    <div id='nav-item' :class="{'flex-space': true, 'active-item': getActiveItem()}" @click='selectItem()'>
         <i class='material-icons'>{{icon}}</i>
         <span class='self-center' v-if='isNavOpen'>{{name}}</span>
     </div>
@@ -35,7 +35,7 @@ export default {
 
 #nav-item {
   cursor: pointer;
-  color: $app-light;
+  color: $app-main;
 
   border-style: solid;
   border-width: 0.05em;

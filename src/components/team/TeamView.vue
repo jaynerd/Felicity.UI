@@ -1,10 +1,10 @@
 <template>
-    <div id="team-view">
+    <div id='team-view'>
         <h3>This is team view</h3>
-        <button @click="openTeamBoxView()">
+        <button @click='openTeamBoxView()'>
             return
         </button>
-        <button @click="showModal()">
+        <button @click='showModal()'>
             modal
         </button>
     </div>
@@ -15,7 +15,7 @@ export default {
   name: "TeamView",
   methods: {
     openTeamBoxView() {
-      this.$bus.$emit("team-box-view");
+      this.$bus.$emit("toggle-team-view");
     },
     showModal() {
       this.CreateModal(
@@ -35,5 +35,6 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang='scss' scoped>
+@import "../../assets/scripts/css/styles.scss";
 </style>

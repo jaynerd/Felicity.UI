@@ -1,15 +1,15 @@
 <template>
-    <div id="modal" class="modal-mask">
-        <div class="modal-dialog">
-            <div class="modal-header">
-                <h3><slot name="title" /></h3>
+    <div id='modal' class='view-max'>
+        <div id='box' class='flex-column content-center'>
+            <div id='header' class='flex-1 self-center'> 
+                <h3><slot name='title' /></h3>
             </div>
-            <div class="modal-body">
-                <slot name="body" />
+            <div id='body' class='flex-4 self-center'>
+                <slot name='body' />
             </div>
-            <div class="modal-footer">
-                <button @click="btn1Click">{{btn1Text}}</button>
-                <button v-if="btn2Text" @click="btn2Click">{{btn2Text}}</button>
+            <div id='footer' class='flex-1 self-center'>
+                <button @click='btn1Click'>{{btn1Text}}</button>
+                <button v-if='btn2Text' @click='btn2Click'>{{btn2Text}}</button>
             </div>
         </div>
     </div>
@@ -39,66 +39,48 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang='scss' scoped>
 @import "../../assets/scripts/css/styles.scss";
 
-$light-text: #f5f5f5;
-$dark-background: rgb(17, 76, 110);
-
-.modal-mask {
-  position: fixed;
-  z-index: 9998;
+#modal {
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: table;
-  transition: opacity 0.3s ease;
-}
-
-.modal-dialog {
-  width: 500px;
-  height: 200px;
+  margin: 0;
   position: fixed;
-  left: 50%;
-  transform: translateX(-50%) translateY(50%);
-  //   margin: 5% auto; /* Will not center vertically and won't work in IE6/7. */
-  //   left: 0;
-  //   right: 0;
-  //   margin-top: 10em; /* Negative half of height. */
-  //   margin-left: 10em; /* Negative half of width. */
-  border: 1px solid black;
-  background-color: white;
-  //   margin-left: 38%;
-  //   margin-top: 50px;
-}
+  background-color: rgba(0, 0, 0, 0.5);
 
-button {
-  margin: 0.3em;
-  border: none;
-  font-size: 15px;
-  padding: 8px 12px;
+  #box {
+    left: 50%;
+    width: 30em;
+    height: 20em;
+    position: fixed;
+    border-radius: 20px;
+    border: 5px outset darkslategray;
+    background-color: $app-main;
+    transform: translateX(-50%) translateY(50%);
 
-  background-color: $dark-background;
-  color: $light-text;
-}
+    #header {
+      color: $app-main;
+      background-color: $app-dark;
 
-.modal-header {
-  padding: 8px;
-  background-color: $dark-background;
-  color: $light-text;
+      h3 {
+        margin: 0;
+      }
+    }
 
-  h3 {
-    margin: 5px 5px 5px 20px;
+    #body {
+      background-color: red;
+    }
+
+    #footer {
+      button {
+        margin: 0.3em;
+        font-size: 15px;
+        padding: 8px 12px;
+        color: $app-main;
+        background-color: $app-dark;
+      }
+    }
   }
-}
-
-.modal-body {
-}
-
-.modal-footer {
-  flex-flow: row-reverse;
-  padding: 4px;
 }
 </style>

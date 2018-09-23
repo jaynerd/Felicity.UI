@@ -54,14 +54,14 @@ export default {
     font-family: "Aldrich", sans-serif;
     padding: 0.3em 0em 0.1em 1em;
     text-transform: uppercase;
-    color: $app-light;
+    color: $app-main;
   }
 
   #content {
     margin: 0px 10px 10px 10px;
-    border: 0.2em outset #ddd;
+    border: 0.2em outset lightgray;
     box-shadow: $app-shadow;
-    background-color: $app-light;
+    background-color: $app-main;
   }
 }
 </style>
