@@ -4,6 +4,10 @@
             <h1 class="flex-1">Dashboard Contents</h1>
             <button @click="createTeam()"><i class="material-icons">add</i></button>
         </div>
+        <div class="flex-row">
+            <input id="teamCode" type="text" v-model="code" placeholder="Invitation code"/>
+            <button @click="joinTeam()">Join</button>
+        </div>
         <div id='team-list' class="flex-row" v-if="!isTeamViewOn">
             <div v-for="team in teams" :key="team.teamId">
                 <app-team-box :name="team.teamName"/>
@@ -33,6 +37,15 @@ export default {
         // alert(this.teams.length);
       });
     },
+    joinTeam() {
+      JoinTeam(this.axios, this.code, response => {
+        // alert("Team list retrieved");
+        this.team = response;
+        this.teamName = this.team.teamName;
+        this.isTeamViewOn = true;
+        // alert(this.teams.length);
+      });
+    },
     createTeam() {
       CreateTeam(this.axios, response => {
         // alert("Team successfully created");
@@ -43,6 +56,8 @@ export default {
   },
   data() {
     return {
+      code: 0,
+      team: null,
       teams: null,
       teamName: "",
       isTeamViewOn: false
@@ -67,9 +82,18 @@ function GetTeams(axios, callback) {
   });
 }
 
+function JoinTeam(axios, code, callback) {
+  var teamCode = code;
+  axios.get("api/team/getteambycode/" + teamCode).then(axiosResponse => {
+    let resp = axiosResponse.data;
+    callback(resp);
+  });
+}
+
 function CreateTeam(axios, callback) {
   var teamInfo = {
     userId: localStorage.getItem("userID"),
+    teamcode: Math.floor(Math.random() * (1000 - 1 + 1)) + 1,
     teamname: Math.floor(Math.random() * (1000 - 1 + 1)) + 1
   };
   axios.post("api/team/createteam", teamInfo).then(axiosResponse => {
