@@ -41,15 +41,15 @@ export default {
     logIn() {
       LogIn(this.axios, this.credential, response => {
         localStorage.setItem("userID", response.userId);
-        alert(
-          `Login information for user ${response.userId} has been verified`
-        );
+        // alert(
+        //   `Login information for user ${response.userId} has been verified`
+        // );
         this.$bus.$emit("logging-in");
       });
     },
     signUp() {
       SignUp(this.axios, this.credential, response => {
-        alert("Account successfully registered");
+        // alert("Account successfully registered");
         // this.$bus.$emit('signing-up');
       });
     }

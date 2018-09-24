@@ -34,6 +34,7 @@ export default {
   background-color: $app-main;
 
   #clock {
+    width: 14em;
     margin: 1em;
   }
 
@@ -45,6 +46,7 @@ export default {
   }
 
   h3 {
+    width: 4.5em;
     margin: 0.5em;
     font-size: 3em;
     font-weight: 300;
@@ -54,6 +56,14 @@ export default {
   @media screen and (max-width: $app-breakpoint) {
     max-height: 100%;
     flex-direction: column;
+
+    #clock {
+      width: auto;
+    }
+
+    h3 {
+      width: auto;
+    }
   }
 }
 </style>

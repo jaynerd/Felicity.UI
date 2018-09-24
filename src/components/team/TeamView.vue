@@ -1,6 +1,6 @@
 <template>
     <div id='team-view'>
-        <h3>This is team view</h3>
+        <h3>Team {{name}}</h3>
         <input type="text" placeholder="Set interval"/>
         <button @click='openTeamBoxView()'>
             return
@@ -14,6 +14,7 @@
 <script>
 export default {
   name: "TeamView",
+  props: { name },
   methods: {
     openTeamBoxView() {
       this.$bus.$emit("toggle-team-view");

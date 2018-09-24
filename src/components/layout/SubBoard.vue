@@ -20,7 +20,7 @@ import Workspace from "../contents/Workspace.vue";
 
 export default {
   name: "SubBoard",
-  props: ["name"],
+  props: { name },
   components: {
     "app-report": Report,
     "app-profile": Profile,

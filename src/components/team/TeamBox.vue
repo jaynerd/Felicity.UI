@@ -13,6 +13,7 @@ export default {
   methods: {
     openTeamView() {
       this.$bus.$emit("toggle-team-view");
+      this.$bus.$emit("set-team-view-name", this.name);
     }
   }
 };
