@@ -6,10 +6,10 @@
             </div>
             <div id='body' class='flex-4 self-center'>
                 <slot name='body'/>
-                <div class="flex-column">
+                <div class='flex-column'>
                     <h3>Q: Are you happy today?</h3>
-                    <input type="text"/>
-                    <app-slider class=""/>
+                    <input type='text'/>
+                    <app-slider class=''/>
                 </div>
             </div>
             <div id='footer' class='flex-1 self-center'>

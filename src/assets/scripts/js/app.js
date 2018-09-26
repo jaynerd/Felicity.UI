@@ -1,5 +1,5 @@
-import Vue from "vue";
-import Modal from "../../../components/widgets/Modal.vue";
+import Vue from 'vue';
+import Modal from '../../../components/widgets/Modal.vue';
 
 export default {
     methods: {

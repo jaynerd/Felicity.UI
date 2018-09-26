@@ -1,15 +1,20 @@
 <template>
     <div id='team-box' class='flex content-center' @click='openTeamView()'>
-        <h3 class='self-center'>
-            {{name}}
-        </h3>
+        <div class='flex-column'>
+            <h3 class='self-center'>
+                {{name}}
+            </h3>
+            <h2 class='self-center'>
+                Code: {{code}}
+            </h2>
+        </div>
     </div>
 </template>
 
 <script>
 export default {
   name: "TeamBox",
-  props: { name },
+  props: ["name", "code"],
   methods: {
     openTeamView() {
       this.$bus.$emit("toggle-team-view");
@@ -33,8 +38,14 @@ export default {
 
   h3 {
     margin: 0;
+    padding-top: 0.2em;
     font-size: 2em;
     color: orangered;
+  }
+
+  h2 {
+    margin: 0;
+    color: red;
   }
 }
 </style>

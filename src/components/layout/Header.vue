@@ -1,7 +1,7 @@
 <template>
     <div id='header' class='flex'>
         <div class='flex flex-1 content-center'>
-            <app-clock id="clock" class='self-center'/>
+            <app-clock id='clock' class='self-center'/>
         </div>
         <div class='flex flex-4 content-center'>
             <h1 class='self-center clip'>Felicity</h1>

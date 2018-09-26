@@ -1,6 +1,6 @@
 <template>
-    <div id="slider">
-        <input type="range" min="1" max="100" value="50"/>
+    <div id='slider'>
+        <input type='range' min='1' max='100' value='50'/>
     </div>
 </template>
 
@@ -10,7 +10,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang='scss' scoped>
 @import "../../assets/scripts/css/styles.scss";
 
 #slider {
