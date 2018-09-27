@@ -39,7 +39,7 @@ export default {
       this.credential.password = value;
     },
     logIn() {
-      LogIn(this.axios, this.credential, response => {
+      LogIn(this.$axios, this.credential, response => {
         localStorage.setItem("userId", response.userId);
         alert(
           `Login information for user ${response.userId} has been verified`
@@ -48,7 +48,7 @@ export default {
       });
     },
     signUp() {
-      SignUp(this.axios, this.credential, response => {
+      SignUp(this.$axios, this.credential, response => {
         alert("Account successfully registered");
         // this.$bus.$emit('signing-up');
       });

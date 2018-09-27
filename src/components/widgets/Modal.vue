@@ -9,7 +9,7 @@
                 <div class='flex-column'>
                     <h3>Q: Are you happy today?</h3>
                     <input type='text'/>
-                    <app-slider class=''/>
+                    <app-slider/>
                 </div>
             </div>
             <div id='footer' class='flex-1 self-center'>
@@ -85,6 +85,14 @@ export default {
     #body {
       width: 100%;
       border: 2px solid gray;
+
+      input {
+        background-color: ivory;
+      }
+
+      #slider {
+        margin-top: 4em;
+      }
     }
 
     #footer {

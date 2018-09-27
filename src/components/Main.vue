@@ -1,7 +1,7 @@
 <template>
     <div id='main' class='view-max flex-column'>
         <app-header/>
-        <section v-if='authenticated' class='view-max flex-row'>
+        <section v-if='isAuthenticated' class='view-max flex-row'>
             <app-nav/>
             <app-board/>
         </section>
@@ -29,12 +29,12 @@ export default {
   },
   data() {
     return {
-      authenticated: false
+      isAuthenticated: false
     };
   },
   mounted() {
     this.$bus.$on("logging-in", () => {
-      this.authenticated = true;
+      this.isAuthenticated = true;
     });
   }
 };

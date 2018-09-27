@@ -8,13 +8,22 @@
         <button @click='showModal()'>
             modal
         </button>
+        <button @click='showPopUp()'>
+            popup
+        </button>
+        <app-smile v-if="isNotified"/>
     </div>
 </template>
 
 <script>
+import Smile from "../widgets/Smile.vue";
+
 export default {
   name: "TeamView",
   props: { name },
+  components: {
+    "app-smile": Smile
+  },
   methods: {
     openTeamBoxView() {
       this.$bus.$emit("toggle-team-view");
@@ -32,7 +41,13 @@ export default {
           alert("Canceled");
         }
       );
+    },
+    showPopUp() {
+      this.isNotified = true;
     }
+  },
+  data() {
+    return { isNotified: false };
   }
 };
 </script>

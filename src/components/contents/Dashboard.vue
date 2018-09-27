@@ -6,7 +6,7 @@
                 <button @click='createTeam()'><i class='material-icons'>add</i></button>
             </div>
             <div class='flex-row'>
-                <input id='team-code' type='text' v-model='code' placeholder='Invitation code'/>
+                <input id='team-code' type='text' v-model='code' placeholder='Enter team code'/>
                 <button @click='joinTeam()'>Join</button>
             </div>
             <div id='team-list' class='flex-row' v-if='!isTeamViewOn'>
@@ -33,13 +33,13 @@ export default {
   },
   methods: {
     getTeams() {
-      GetTeams(this.axios, response => {
+      GetTeams(this.$axios, response => {
         this.teams = response;
         alert("Team list retrieved");
       });
     },
     joinTeam() {
-      JoinTeam(this.axios, this.code, response => {
+      JoinTeam(this.$axios, this.code, response => {
         this.team = response;
         this.teamName = this.team.teamName;
         this.isTeamViewOn = true;
@@ -47,7 +47,7 @@ export default {
       });
     },
     createTeam() {
-      CreateTeam(this.axios, response => {
+      CreateTeam(this.$axios, response => {
         this.getTeams();
         alert("Team successfully created");
       });
