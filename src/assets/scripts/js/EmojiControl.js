@@ -4,7 +4,7 @@ export default class EmojiController extends Vue {
   constructor() {
     super();
 
-    this.emojiRadius = window.innerWidth / 16;
+    this.emojiRadius = window.innerHeight / 8;
     this.stageOffset = this.emojiRadius / 80;
 
     this.happiness = 50;
@@ -19,7 +19,7 @@ export default class EmojiController extends Vue {
   }
 
   get stageConfig() {
-    let stageSize = this.emojiRadius + 2 * this.stageOffset;
+    let stageSize = this.emojiRadius * 2 + this.stageOffset * 2;
     return {
       width: stageSize,
       height: stageSize
@@ -32,7 +32,15 @@ export default class EmojiController extends Vue {
       x: centreStage,
       y: centreStage,
       radius: this.emojiRadius,
-      fill: "yellow",
+      fillLinearGradientStartPoint: {
+        x: this.emojiRadius + this.stageOffset,
+        y: -this.emojiRadius
+      },
+      fillLinearGradientEndPoint: {
+        x: this.emojiRadius + this.stageOffset,
+        y: this.emojiRadius * 2 + this.stageOffset * 2
+      },
+      fillLinearGradientColorStops: [0, "white", 0.5, "yellow"],
       stroke: "black",
       strokeWidth: this.stageOffset
     };
@@ -56,7 +64,7 @@ export default class EmojiController extends Vue {
 
   get lipConfig() {
     let lipHalfHeight = this.emojiRadius / 6;
-    let lipHalfWidth = (this.emojiRadius * 5) / 8;
+    let lipHalfWidth = (this.emojiRadius * 2) / 4;
     let lipMid = map(this.happiness, 0, 100, -lipHalfHeight, lipHalfHeight);
     let lipSides = -lipMid;
 
@@ -65,7 +73,7 @@ export default class EmojiController extends Vue {
       offsetY: -(this.emojiRadius * 3) / 2,
       tension: 0.8,
       stroke: "black",
-      strokeWidth: 5,
+      strokeWidth: this.stageOffset,
       points: [-lipHalfWidth, lipSides, 0, lipMid, lipHalfWidth, lipSides]
     };
   }

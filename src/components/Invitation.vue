@@ -1,11 +1,11 @@
 <template>
-  <div class="hello">
+  <div class="hello" align="center">
        <img alt="Vue logo" src="./felicity cropped.png">
      <h1>{{ msg }}</h1>
       <p>
       Please enter your team invitation code below!
     </p>
-    <input type="text" placeholder="Code..." v-model="invitationCode">
+    <input type="text" placeholder="Code...">
     <nav>
       <router-link to ="/submission">Submit</router-link>
      </nav>  
@@ -14,24 +14,27 @@
 
 <script>
 export default {
-  name: 'Invitation',
+  name: "Invitation",
 
-  data(){
-    return{
-      msg: 'Welcome to Felicity',
+  data() {
+    return {
+      msg: "Welcome to Felicity",
       invitatationCode: String
-    }
+    };
   }
 
   // props: {
   //   msg: String
   // }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
-h3 {
+<style scoped>
+div {
+  margin: auto;
+}
+h1 {
   margin: 40px 0 0;
 }
 ul {
@@ -46,13 +49,12 @@ a {
   color: #42b983;
 }
 
-input{
+input {
   width: calc(100% - 1300px);
   border: 0;
   padding: 20px;
   font-size: 1.3em;
   background-color: black;
-  color:aquamarine
+  color: aquamarine;
 }
-
 </style>

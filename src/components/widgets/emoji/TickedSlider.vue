@@ -15,14 +15,9 @@ export default {
   props: {
     emojiControl: Object
   },
-  data() {
-    return {
-      emojiControl: this.emojiControl
-    };
-  },
   methods: {
     handleChange: function(event) {
-      let control = this.$data.emojiControl;
+      let control = this.$props.emojiControl;
       control.setHappiness(event.srcElement.value);
       control.$emit("happyChange");
     }
