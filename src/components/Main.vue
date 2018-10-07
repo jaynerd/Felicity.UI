@@ -29,7 +29,7 @@ export default {
   },
   data() {
     return {
-      isAuthenticated: false
+      authenticated: true
     };
   },
   mounted() {
