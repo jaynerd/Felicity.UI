@@ -1,5 +1,5 @@
 <template>
-    <div id='main' class='view-max flex-column'>
+    <div id='main' class='flex-column self-center'>
         <app-header/>
         <section v-if='authenticated' class='view-max flex-row'>
             <app-nav/>

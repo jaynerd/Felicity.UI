@@ -4,7 +4,7 @@ export default class EmojiController extends Vue {
   constructor() {
     super();
 
-    this.emojiRadius = window.innerHeight / 8;
+    this.emojiRadius = window.innerHeight / 7;
     this.stageOffset = this.emojiRadius / 80;
 
     this.happiness = 50;

@@ -1,4 +1,5 @@
 <template>
+  <div id='emoji' class="self-center">
     <v-stage :config="configStage">
         <v-layer>
             <v-circle :config="configFace"></v-circle>
@@ -7,6 +8,7 @@
             <v-line :config="configLips"></v-line>
         </v-layer>
     </v-stage>
+  </div>
 </template>
 
 <script>

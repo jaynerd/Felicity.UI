@@ -2,7 +2,9 @@
     <div>
         <datalist id="tickmarks">
             <option label="Very Sad">0</option>
+            <option label="Sad">25</option>
             <option label="Neutral">50</option>
+            <option label="Happy">75</option>
             <option label="Very Happy">100</option>
         </datalist>
         <input type="range" min="0" max="100" step="1" value="50" class="slider" list="tickmarks" v-on:input="this.handleChange">
