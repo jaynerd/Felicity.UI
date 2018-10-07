@@ -1,7 +1,7 @@
 <template>
-    <div id='header' class='flex-row'>
+    <div id='header' class='flex'>
         <div class='flex flex-1 content-center'>
-            <app-clock class='self-center'/>
+            <app-clock id='clock' class='self-center'/>
         </div>
         <div class='flex flex-4 content-center'>
             <h1 class='self-center clip'>Felicity</h1>
@@ -27,26 +27,43 @@ export default {
 @import "../../assets/scripts/css/styles.scss";
 
 #header {
-  height: 4em;
-  z-index: 999;
-  min-width: 690px;
+  z-index: 99;
+  max-height: 4em;
   white-space: nowrap;
-  box-shadow: $layout-shadow;
-  background-color: $layout-light;
+  box-shadow: $app-shadow;
+  background-color: $app-main;
+
+  #clock {
+    width: 14em;
+    margin: 1em;
+  }
 
   h1 {
-    margin: 0;
+    margin: 0.3em;
     font-size: 2.5em;
     font-weight: 500;
     font-family: "Julius Sans One", sans-serif;
   }
 
   h3 {
-    margin: 0;
+    width: 4.5em;
+    margin: 0.5em;
     font-size: 3em;
     font-weight: 300;
     font-family: "Libre Barcode 128 Text", cursive;
-    margin-right: 0.4em;
+  }
+
+  @media screen and (max-width: $app-breakpoint) {
+    max-height: 100%;
+    flex-direction: column;
+
+    #clock {
+      width: auto;
+    }
+
+    h3 {
+      width: auto;
+    }
   }
 }
 </style>

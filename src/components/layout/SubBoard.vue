@@ -20,7 +20,7 @@ import Workspace from "../contents/Workspace.vue";
 
 export default {
   name: "SubBoard",
-  props: ["name"],
+  props: { name },
   components: {
     "app-report": Report,
     "app-profile": Profile,
@@ -34,7 +34,7 @@ export default {
     };
   },
   mounted() {
-    this.$bus.$on("select-item", event => {
+    this.$bus.$on("item-selected", event => {
       this.title = event;
     });
   }
@@ -45,25 +45,23 @@ export default {
 @import "../../assets/scripts/css/styles.scss";
 
 #sub-board {
-  background: rgb(65, 65, 65);
+  background: $app-content;
 
   h3 {
     margin: 0;
-    padding: 0.2em;
-    padding-top: 0.3em;
-    padding-left: 1em;
     font-size: 1.5em;
     font-weight: 100;
     font-family: "Aldrich", sans-serif;
+    padding: 0.3em 0em 0.1em 1em;
     text-transform: uppercase;
-    color: $layout-light;
+    color: $app-main;
   }
 
   #content {
     margin: 0px 10px 10px 10px;
-    border: 0.2em outset #ddd;
-    box-shadow: $layout-shadow;
-    background-color: $layout-light;
+    border: 0.2em outset lightgray;
+    box-shadow: $app-shadow;
+    background-color: $app-main;
   }
 }
 </style>

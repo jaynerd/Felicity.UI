@@ -1,25 +1,25 @@
 <template>
-    <div id="login" class="view-max flex-column content-center">
-        <div id="login-box" class="flex-column self-center">
-            <h3 class="flex-1 self-center clip">Access Denied</h3>
-            <h2 class="flex-1 self-center">Please <span style="color:red;">Login</span> Below</h2>
-            <div id="input-box" class="flex-column flex-3 self-center content-center">
-                <i class="self-center material-icons">account_circle</i>
-                <div id="input-text-box" class="flex-column">
-                    <div id="input-text" class="flex-space self-center">
-                        <h4 class="flex-1 self-center">ID:</h4>
-                        <input class="flex-1 self-center" type="text" v-model="credential.username" @input="setUsername($event.target.value)"/>
+    <div id='login' class='view-max flex-column content-center'>
+        <div id='login-box' class='flex-column self-center'>
+            <h3 class='flex-1 self-center clip'>Access Denied</h3>
+            <h2 class='flex-1 self-center'>Please <span style='color:red;'>Login</span> Below</h2>
+            <div id='input-box' class='flex-column flex-3 self-center'>
+                <i class='self-center material-icons'>account_circle</i>
+                <div id='input-text-box' class='flex-column'>
+                    <div id='input-text' class='flex-space self-center'>
+                        <h4 class='flex-1 self-center'>ID:</h4>
+                        <input class='flex-1 self-center' type='text' v-model='credential.username' @input='setUsername($event.target.value)'/>
                     </div>
-                    <div id="input-text" class="flex-space self-center">
-                        <h4 class="flex-1 self-center">PW:</h4>
-                        <input class="flex-1 self-center" type="password" v-model="credential.password" @input="setPassword($event.target.value)"/>
+                    <div id='input-text' class='flex-space self-center'>
+                        <h4 class='flex-1 self-center'>PW:</h4>
+                        <input class='flex-1 self-center' type='password' v-model='credential.password' @input='setPassword($event.target.value)'/>
                     </div>
                 </div>
-                <div id="button-box" class="flex-space self-center">
-                    <button class="login" type="success" @click="access()">
+                <div id='button-box' class='flex-space self-center'>
+                    <button id='log-in' type='success' @click='logIn()'>
                         Log in
                     </button>
-                    <button class="signup" type="button">
+                    <button id='sign-up' type='button' @click='signUp()'>
                         Sign up
                     </button>
                 </div>
@@ -38,10 +38,19 @@ export default {
     setPassword(value) {
       this.credential.password = value;
     },
-    access() {
-      Login(this.axios, this.credential, response => {
-        alert("Login successful");
-        this.$bus.$emit("log-in");
+    logIn() {
+      LogIn(this.$axios, this.credential, response => {
+        localStorage.setItem("userId", response.userId);
+        alert(
+          `Login information for user ${response.userId} has been verified`
+        );
+        this.$bus.$emit("logging-in");
+      });
+    },
+    signUp() {
+      SignUp(this.$axios, this.credential, response => {
+        alert("Account successfully registered");
+        // this.$bus.$emit('signing-up');
       });
     }
   },
@@ -55,25 +64,32 @@ export default {
   }
 };
 
-function Login(axios, credential, callback) {
+function LogIn(axios, credential, callback) {
   axios.post("api/auth/login", credential).then(axiosResponse => {
+    let resp = axiosResponse.data;
+    resp.userName != null ? callback(resp) : alert(resp);
+  });
+}
+
+function SignUp(axios, credential, callback) {
+  axios.post("api/user/createuser", credential).then(axiosResponse => {
     let resp = axiosResponse.data;
     resp === true ? callback(resp) : alert(resp);
   });
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang='scss' scoped>
 @import "../../assets/scripts/css/styles.scss";
 
 #login {
-  background-color: $layout-dark;
+  background-color: $app-dark;
 
   #login-box {
     width: 30em;
     height: 30em;
     border-radius: 20px;
-    background-color: #ddd;
+    background-color: $app-main;
 
     h2,
     h3 {
@@ -97,11 +113,11 @@ function Login(axios, credential, callback) {
       padding-top: 1em;
       margin-bottom: 2em;
       border-radius: 10px;
-      background-color: $layout-turquoise;
+      background-color: $app-turquoise;
 
       i {
         font-size: 5.5em;
-        color: $layout-light;
+        color: $app-main;
       }
 
       #input-text-box {
@@ -112,7 +128,7 @@ function Login(axios, credential, callback) {
           margin-right: 2.2em;
 
           h4 {
-            color: $layout-light;
+            color: $app-main;
             font-family: "Rajdhani", sans-serif;
           }
 
@@ -127,13 +143,12 @@ function Login(axios, credential, callback) {
         button {
           width: 5em;
           height: 2em;
-          color: #333;
           padding: 10px 20px;
           margin: 1em 1.5em 0em 1.5em;
           border: 1px solid #ddd;
-          background-color: $layout-light;
           border-radius: 4px;
           font-size: 14px;
+          color: white;
           cursor: pointer;
         }
 
@@ -141,24 +156,22 @@ function Login(axios, credential, callback) {
           transform: translateY(1px);
         }
 
-        .login {
+        #log-in {
           padding: 0;
-          color: #fff;
-          background-color: #13ce66;
+          background-color: #0b9248;
         }
 
-        .login:hover {
-          background-color: #49fa98;
+        #log-in:hover {
+          background-color: #23c96d;
         }
 
-        .signup {
+        #sign-up {
           padding: 0;
-          color: #fff;
-          background-color: #50bfff;
+          background-color: #2991ce;
         }
 
-        .signup:hover {
-          background-color: #8ed5ff;
+        #sign-up:hover {
+          background-color: #57a4d1;
         }
       }
     }

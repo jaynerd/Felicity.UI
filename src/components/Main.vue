@@ -1,12 +1,13 @@
 <template>
     <div id='main' class='view-max flex-column'>
         <app-header/>
-        <section v-if='authenticated' class='view-max flex-row'>
+        <section v-if='isAuthenticated' class='view-max flex-row'>
             <app-nav/>
             <app-board/>
         </section>
         <app-login v-else/>
         <app-footer/>
+        <div id='modal-anchor'/>
     </div>
 </template>
 
@@ -32,8 +33,8 @@ export default {
     };
   },
   mounted() {
-    this.$bus.$on("log-in", () => {
-      this.authenticated = true;
+    this.$bus.$on("logging-in", () => {
+      this.isAuthenticated = true;
     });
   }
 };

@@ -1,17 +1,15 @@
 <template>
     <div id='clock'>
         <div id='hours'>
-            <span id='suffix' v-text='suffix'></span>
-            <span v-text='hours'></span>
+            <span id='suffix' v-text='suffix'/>
+            <span v-text='hours'/>
         </div>
-        <div id='minutes' v-text='minutes'></div>
-        <div id='seconds' v-text='seconds'></div>
+        <div id='minutes' v-text='minutes'/>
+        <div id='seconds' v-text='seconds'/>
     </div>
 </template>
 
 <script>
-import { getZero, getTimeSuffix } from "../../assets/scripts/js/app.js";
-
 export default {
   name: "Clock",
   methods: {
@@ -39,14 +37,20 @@ export default {
     clearInterval(this.$options.interval);
   }
 };
+
+function getZero(value) {
+  return (parseInt(value, 10) >= 10 ? "" : "0") + value;
+}
+
+function getTimeSuffix(hours) {
+  return hours >= 12 ? "PM" : "AM";
+}
 </script>
 
 <style lang='scss' scoped>
 @import "../../assets/scripts/css/styles.scss";
 
 #clock {
-  margin: 8px;
-
   #hours,
   #minutes,
   #seconds {
@@ -64,7 +68,7 @@ export default {
 #suffix {
   top: -4px;
   left: -5px;
-  font-size: 0.7rem;
+  font-size: 0.35em;
   position: absolute;
 }
 </style>
