@@ -28,12 +28,7 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/scripts/css/styles.scss";
 
-// #happy_collector {
-//   width: 25%;
-//   min-width: 300px;
-// }
-
-// #ticked_slider {
-//   margin: 10px 0px 0px;
-// }
+#ticked_slider {
+  margin: 10px 0px 0px;
+}
 </style>
