@@ -1,5 +1,5 @@
 <template>
-    <div id="happy_collector" align="center">
+    <div id="happy_collector" class="view-max flex-column self-center">
         <emoji-face id="emoji_face" :emojiControl="this.emojiControl"></emoji-face>
         <ticked-slider id="ticked_slider" :emojiControl="this.emojiControl"></ticked-slider>
     </div>
@@ -26,10 +26,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#happy_collector {
-  width: 25%;
-  min-width: 300px;
-}
+@import "@/assets/scripts/css/styles.scss";
 
 #ticked_slider {
   margin: 10px 0px 0px;

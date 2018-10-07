@@ -1,17 +1,18 @@
 <template>
-  <div class="hello" align="center">
-     <h1>{{ msg }}</h1>
-      <p>
-      How happy do you feel right now?
-    </p>
-    <!-- <input type="text" placeholder="....." v-model="individualHappiness"> -->
-    <emoji-collector></emoji-collector>
-       <p>
-      How happy do you think your team feels right now?
-    </p>
-    <!-- <input type="text" placeholder="....." v-model="teamHappiness">  -->
-    <emoji-collector></emoji-collector>
-    <button v-bind:enabled = "btnState">Submit</button>
+  <div align="center">
+    <div id="submissions" class="flex-column content-center">
+      <div id="submission_header" class="flex-row">
+        <h1>{{ msg }}</h1>
+        <img src="./felicity cropped.png" alt="Felicity Logo">
+      </div>
+      <p>How happy do you feel right now?</p>
+      <emoji-collector></emoji-collector>
+      <p>How happy do you think your team feels right now?</p>
+      <emoji-collector></emoji-collector>
+      <div>
+        <button :disabled="btnState" v-on:click="happySubmit">Submit</button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -19,29 +20,49 @@
 import EmojiCollector from "./widgets/emoji/EmojiCollector.vue";
 
 export default {
-  name: "Invitation",
+  name: "Submission",
 
   data() {
     return {
       msg: "Please submit your Happiness!",
-      individualHappiness: "",
-      teamHappiness: "",
-      btnState: true
+      btnState: false
     };
   },
   components: {
     "emoji-collector": EmojiCollector
+  },
+  methods: {
+    happySubmit: function() {
+      this.btnState = true;
+      window.alert("Submission Successful");
+    }
   }
-
-  // props: {
-  //   msg: String
-  // }
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
-h3 {
+<style lang="scss" scoped>
+@import "@/assets/scripts/css/styles.scss";
+
+#submissions {
+  text-align: center;
+  max-width: 25%;
+  min-width: 400px;
+
+  #submission_header {
+    align-items: center;
+
+    img {
+      width: 15%;
+      height: 15%;
+    }
+
+    h1 {
+      font-size: 1.8em;
+    }
+  }
+}
+
+/* h3 {
   margin: 40px 0 0;
 }
 ul {
@@ -56,7 +77,7 @@ a {
   color: #42b983;
 }
 
-/* input {
+input {
   width: calc(100% - 1300px);
   border: 0;
   padding: 20px;
@@ -64,13 +85,12 @@ a {
   background-color: black;
   color: aquamarine;
 } */
-button {
-  padding: 10px;
-  text-decoration: none;
-  background: black;
-  border-radius: 3px;
-  color: red;
-  font-weight: bold;
-  margin-right: 15px;
-}
+// button {
+//   padding: 10px;
+//   text-decoration: none;
+//   background: black;
+//   border-radius: 3px;
+//   color: red;
+//   font-weight: bold;
+// }
 </style>

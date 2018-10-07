@@ -16,13 +16,13 @@
 </template>
 
 <script>
-import Smile from "../widgets/Smile.vue";
+// import Smile from "../widgets/Smile.vue";
 
 export default {
   name: "TeamView",
   props: { name },
   components: {
-    "app-smile": Smile
+    "app-smile": {}
   },
   methods: {
     openTeamBoxView() {
