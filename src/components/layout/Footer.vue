@@ -17,9 +17,9 @@ export default {
 
 #footer {
   height: 3em;
-  font-weight: 300;
+  font-weight: 400;
   font-family: "Segoe UI", sans-serif;
-  background-color: $layout-light;
+  background-color: $app-main;
   text-transform: uppercase;
   white-space: nowrap;
 }
