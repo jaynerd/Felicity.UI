@@ -6,10 +6,10 @@
                 <i class='self-center material-icons'>account_circle</i>
                 <div id='input-text-box' class='flex-column'>
                     <div id='input-text' class='flex-space self-center'>
-                        <input class='flex-1 self-center' type='text' placeholder="Organisation" @input='setInvite($event.target.value)'/>
+                        <input class='flex-1 self-center' type='text' placeholder="Organisation" @input='setInviteCode($event.target.value)'/>
                     </div>
                     <div id='input-text' class='flex-space self-center'>
-                        <input class='flex-1 self-center' type='text' placeholder="Personal Code" @input='setInvite($event.target.value)'/>
+                        <input class='flex-1 self-center' type='text' placeholder="Personal Code" @input='setInviteCode($event.target.value)'/>
                     </div>
                 </div>
                 <div id='button-box' class='flex-space self-center'>
@@ -26,10 +26,12 @@
 export default {
   name: "Invitation",
   methods: {
-    setInvite: function(value) {
+    setInviteCode: function(value) {
       this.inviteCode = value;
     },
-    submitCode: function(value) {}
+    submitCode: function() {
+      this.$bus.$emit("authenticated");
+    }
   },
   data() {
     return {

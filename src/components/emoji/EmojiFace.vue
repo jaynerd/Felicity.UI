@@ -38,9 +38,18 @@ export default {
     handleHappyChange: function() {
       let control = this.$props.emojiControl;
       let data = this.$data;
-      data.configLEye = control.leftEyeConfig;
-      data.configREye = control.rightEyeConfig;
-      data.configLips = control.lipConfig;
+
+      let happyDelta = control.currentHappy - control.oldHappy;
+
+      if (happyDelta > 0) {
+        for (let i = control.oldHappy + 1; i <= control.currentHappy; i++) {
+          setTimeout(() => renderEmoji(data, control, i), 50);
+        }
+      } else if (happyDelta < 0) {
+        for (let i = control.oldHappy - 1; i >= control.currentHappy; i--) {
+          setTimeout(() => renderEmoji(data, control, i), 50);
+        }
+      } else renderEmoji(data, control, control.currentHappy);
     },
     drawFace: function() {
       let control = this.$props.emojiControl;
@@ -50,5 +59,11 @@ export default {
       this.handleHappyChange();
     }
   }
+};
+
+let renderEmoji = function(data, control, happiness) {
+  data.configLEye = control.leftEyeConfig(happiness);
+  data.configREye = control.rightEyeConfig(happiness);
+  data.configLips = control.lipConfig(happiness);
 };
 </script>

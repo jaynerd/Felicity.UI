@@ -7,7 +7,7 @@
             <option label="Happy">75</option>
             <option label="Very Happy">100</option>
         </datalist>
-        <input type="range" min="0" max="100" step="1" value="50" class="slider" list="tickmarks" v-on:input="this.handleChange">
+        <input type="range" min="0" max="100" step="25" value="50" class="slider" list="tickmarks" v-on:change="this.handleChange">
     </div>
 </template>
 
@@ -20,7 +20,7 @@ export default {
   methods: {
     handleChange: function(event) {
       let control = this.$props.emojiControl;
-      control.setHappiness(event.srcElement.value);
+      control.setHappiness(Number(event.srcElement.value));
       control.$emit("happyChange");
     }
   }
