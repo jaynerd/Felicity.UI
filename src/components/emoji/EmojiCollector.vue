@@ -1,7 +1,8 @@
 <template>
-    <div id="happy_collector" class="view-max flex-column self-center">
-        <emoji-face id="emoji_face" :emojiControl="this.emojiControl"></emoji-face>
-        <ticked-slider id="ticked_slider" :emojiControl="this.emojiControl"></ticked-slider>
+    <div id="happy_collector" class="flex-column self-center">
+      <emoji-face id="emoji_face" :emojiControl="this.emojiControl"></emoji-face>
+      <span>{{ question }}</span>
+      <ticked-slider id="ticked_slider" :emojiControl="this.emojiControl"></ticked-slider>
     </div>
 </template>
 
@@ -13,8 +14,12 @@ import EmojiControl from "@/assets/scripts/js/EmojiControl.js";
 
 export default {
   name: "EmojiCollector",
+  props: {
+    initQuestion: ""
+  },
   data() {
     return {
+      question: this.initQuestion,
       emojiControl: new EmojiControl()
     };
   },
@@ -29,7 +34,10 @@ export default {
 @import "@/assets/scripts/css/styles.scss";
 
 #ticked_slider {
-  margin: 10px 0px 0px;
   width: 40em;
+}
+
+span {
+  text-align: center;
 }
 </style>
