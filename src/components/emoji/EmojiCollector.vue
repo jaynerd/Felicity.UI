@@ -30,5 +30,6 @@ export default {
 
 #ticked_slider {
   margin: 10px 0px 0px;
+  width: 40em;
 }
 </style>

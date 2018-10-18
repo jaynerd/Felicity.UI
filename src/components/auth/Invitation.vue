@@ -45,23 +45,19 @@ export default {
 @import "../../assets/scripts/css/styles.scss";
 
 #invite {
-  background-color: $app-dark;
+  // background-color: $app-dark;
 
   #invite-box {
     width: 30em;
-    height: 27em;
+    height: 25em;
     border-radius: 20px;
     background-color: $app-main;
-
-    h2,
-    h3 {
-      margin: 0;
-      font-family: "Rajdhani", sans-serif;
-    }
 
     h2 {
       margin: 1em;
       font-size: 2em;
+      font-family: "Rajdhani", sans-serif;
+      color: black;
     }
 
     #input-box {

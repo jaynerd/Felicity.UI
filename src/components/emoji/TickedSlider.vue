@@ -1,14 +1,16 @@
 <template>
-    <div>
-        <datalist id="tickmarks">
-            <option label="Very Sad">0</option>
-            <option label="Sad">25</option>
-            <option label="Neutral">50</option>
-            <option label="Happy">75</option>
-            <option label="Very Happy">100</option>
-        </datalist>
-        <input type="range" min="0" max="100" step="25" value="50" class="slider" list="tickmarks" v-on:change="this.handleChange">
-    </div>
+  <div id="slider-box" class="flex-column self-center">
+    <v-slider 
+      id="slider"
+      v-model="happiness"
+      :tick-labels="phases"
+      step="25"
+      ticks="always"
+      tick-size="2"
+      always-dirty
+      @input="handleChange"
+    ></v-slider>
+  </div>
 </template>
 
 <script>
@@ -17,10 +19,17 @@ export default {
   props: {
     emojiControl: Object
   },
+  data() {
+    return {
+      happiness: this.emojiControl.currentHappy,
+      phases: ["Very Unhappy", "Unhappy", "Neutral", "Happy", "Very Happy"]
+    };
+  },
+  mounted() {},
   methods: {
     handleChange: function(event) {
       let control = this.$props.emojiControl;
-      control.setHappiness(Number(event.srcElement.value));
+      control.setHappiness(event);
       control.$emit("happyChange");
     }
   }
@@ -28,14 +37,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-datalist {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-}
+@import "@/assets/scripts/css/styles.scss";
 
-input {
-  margin-top: 1em;
-  width: 100%;
+.v-input {
+  font-size: 0.8em;
 }
 </style>

@@ -37,7 +37,7 @@ export default {
 @import "@/assets/scripts/css/styles.scss";
 
 #submissions {
-  background-color: $app-dark;
+  // background-color: $app-dark;
 
   #title {
     h1 {

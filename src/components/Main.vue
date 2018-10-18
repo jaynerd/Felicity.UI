@@ -1,8 +1,10 @@
 <template>
+  <v-app dark>
     <div id='main' class='view-max flex-column self-center'>
       <app-submission v-if='isAuthenticated'/>
       <app-invitation v-else/>
     </div>
+  </v-app>
 </template>
 
 <script>
