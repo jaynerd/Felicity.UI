@@ -1,19 +1,23 @@
 <template>
-  <div id='submissions' class='view-max flex-column content-center'>
-    <div id='title' class="flex-row self-center">
-      <h1 class='flex-1 self-center'>{{ title }}</h1>
-      <img src="@/components/FelicityLogo.png"/>
+  <v-app dark>
+    <div id='main' class='view-max flex-column self-center'>
+      <div id='submissions' class='view-max flex-column content-center'>
+        <div id='title' class="flex-row self-center">
+          <h1 class='flex-1 self-center'>{{ title }}</h1>
+          <img src="@/components/FelicityLogo.png"/>
+        </div>
+        <div id="submission" class="flex-column content-center">
+          <emoji-collector :initQuestion="question1"/>
+          <emoji-collector :initQuestion="question2"/>
+        </div>
+        <div id='button-box' class='flex-space self-center'>
+          <button id='submit' type='success'>
+              Submit
+          </button>
+        </div>
+      </div>
     </div>
-    <div id="submission" class="flex-column content-center">
-      <emoji-collector :initQuestion="question1"/>
-      <emoji-collector :initQuestion="question2"/>
-    </div>
-    <div id='button-box' class='flex-space self-center'>
-      <button id='submit' type='success'>
-          Submit
-      </button>
-    </div>
-  </div>
+  </v-app>
 </template>
 
 <script>
@@ -28,6 +32,11 @@ export default {
       question1: "Please indicate how you feel about your work.",
       question2: "Please indicate how you think the team feel about the work."
     };
+  },
+  mounted() {
+    this.$bus.$on("test", () => {
+      window.alert("IT'S WORKING");
+    });
   },
   components: {
     "emoji-collector": EmojiCollector
