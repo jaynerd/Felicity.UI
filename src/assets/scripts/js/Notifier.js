@@ -25,7 +25,7 @@ let notify = () => {
   Push.create("Hello World", {
     onClick: function() {
       window.open(
-        window.origin + "/#/notification",
+        window.origin + "/notification",
         "NotificationPopUp",
         "height=300,width=400,modal=yes"
       );
