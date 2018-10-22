@@ -1,17 +1,20 @@
 <template>
   <v-app dark>
     <div id='main' class='view-max flex-column self-center'>
-      <app-invitation/>
+      <app-keepopen v-if="isAuthenticated"/>
+      <app-invitation v-else/>
     </div>
   </v-app>
 </template>
 
 <script>
 import Invitation from "@/components/auth/Invitation";
+import KeepOpen from "@/components/KeepOpen";
 
 export default {
   name: "Main",
   components: {
+    "app-keepopen": KeepOpen,
     "app-invitation": Invitation
   },
   data() {
@@ -21,12 +24,7 @@ export default {
   },
   mounted() {
     this.$bus.$on("authenticated", () => {
-      this.$router.push("/submission");
-      window.open(
-        "http://localhost:8080/#/notification",
-        "popUpWindow",
-        "height=300,width=400,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no,status=yes"
-      );
+      this.isAuthenticated = true;
     });
   }
 };

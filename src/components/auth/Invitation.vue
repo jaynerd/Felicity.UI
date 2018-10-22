@@ -6,10 +6,10 @@
                 <i class='self-center material-icons'>account_circle</i>
                 <div id='input-text-box' class='flex-column'>
                     <div id='input-text' class='flex-space self-center'>
-                        <input class='flex-1 self-center' type='text' placeholder="Organisation" @input='setInviteCode($event.target.value)'/>
+                        <input class='flex-1 self-center' type='text' placeholder="Organisation" @input='setOrgCode($event.target.value)'/>
                     </div>
                     <div id='input-text' class='flex-space self-center'>
-                        <input class='flex-1 self-center' type='text' placeholder="Personal Code" @input='setInviteCode($event.target.value)'/>
+                        <input class='flex-1 self-center' type='text' placeholder="Personal Code" @input='setIndivCode($event.target.value)'/>
                     </div>
                 </div>
                 <div id='button-box' class='flex-space self-center'>
@@ -26,16 +26,21 @@
 export default {
   name: "Invitation",
   methods: {
-    setInviteCode: function(value) {
-      this.inviteCode = value;
+    setOrgCode: function(value) {
+      this.orgCode = value;
+    },
+    setIndivCode: function(value) {
+      this.indivCode = value;
     },
     submitCode: function() {
-      this.$bus.$emit("authenticated");
+      let credentials = this.orgCode.concat(this.indivCode);
+      this.$bus.$emit("authenticated", credentials);
     }
   },
   data() {
     return {
-      inviteCode: ""
+      orgCode: "",
+      indivCode: ""
     };
   }
 };
@@ -45,8 +50,6 @@ export default {
 @import "../../assets/scripts/css/styles.scss";
 
 #invite {
-  // background-color: $app-dark;
-
   #invite-box {
     width: 30em;
     height: 25em;
@@ -82,7 +85,7 @@ export default {
 
           input {
             height: 1.5em;
-            background-color: #eee;
+            background-color: black;
           }
         }
       }

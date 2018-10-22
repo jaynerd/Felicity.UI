@@ -4,16 +4,16 @@
             <div id="notification-box" class='flex-column self-center'>
                 <h1>It's time to enter your happiness information</h1>
                 <div id='button-box' class='flex-space self-center'>
-                    <button id='redirect' type='success' @click='redirect()'>
+                    <button id='redirect' type='success' @click='submit()'>
                         Click Here
                     </button>
                 </div>
                 <div id="postpone-box" class="flex-row self-center">
                     <span>
                         I'm busy... postpone for 
-                        <button id="post5" class="postpone-button">5</button>,
-                        <button id="post10" class="postpone-button">10</button>,
-                        <button id="post15" class="postpone-button">15</button>
+                        <button id="post5" class="postpone-button" @click="postpone(0.1)">5</button>,
+                        <button id="post10" class="postpone-button" @click="postpone(0.2)">10</button>,
+                        <button id="post15" class="postpone-button" @click="postpone(0.3)">15</button>
                         minutes.
                     </span>
                 </div>
@@ -26,9 +26,16 @@
 export default {
   name: "NotifPopUp",
   methods: {
-    redirect: function() {
-      window.open("http://localhost:8080/#/submission");
-      this.$bus.$emit("test");
+    postpone: function(minutes) {
+      window.opener.postMessage(
+        { type: "Postpone", time: minutes },
+        window.origin
+      );
+      window.close();
+    },
+    submit: function() {
+      window.opener.postMessage({ type: "Submit" }, window.origin);
+      window.close();
     }
   }
 };

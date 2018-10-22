@@ -1,23 +1,21 @@
 <template>
-  <v-app dark>
-    <div id='main' class='view-max flex-column self-center'>
-      <div id='submissions' class='view-max flex-column content-center'>
-        <div id='title' class="flex-row self-center">
-          <h1 class='flex-1 self-center'>{{ title }}</h1>
-          <img src="@/components/FelicityLogo.png"/>
-        </div>
-        <div id="submission" class="flex-column content-center">
-          <emoji-collector :initQuestion="question1"/>
-          <emoji-collector :initQuestion="question2"/>
-        </div>
-        <div id='button-box' class='flex-space self-center'>
-          <button id='submit' type='success'>
-              Submit
-          </button>
-        </div>
-      </div>
+<v-app dark>
+  <div id='submissions' class='view-max flex-column content-center'>
+    <div id='title' class="flex-row self-center">
+      <h1 class='flex-1 self-center'>{{ title }}</h1>
+      <img src="@/components/FelicityLogo.png"/>
     </div>
-  </v-app>
+    <div id="submission" class="flex-column content-center">
+      <emoji-collector :initQuestion="question1"/>
+      <emoji-collector :initQuestion="question2"/>
+    </div>
+    <div id='button-box' class='flex-space self-center'>
+      <button id='submit' type='success' @click="happySubmit">
+          Submit
+      </button>
+    </div>
+  </div>
+</v-app>
 </template>
 
 <script>
@@ -25,7 +23,6 @@ import EmojiCollector from "@/components/emoji/EmojiCollector";
 
 export default {
   name: "Submission",
-
   data() {
     return {
       title: "Happiness Submission",
@@ -34,17 +31,14 @@ export default {
     };
   },
   mounted() {
-    this.$bus.$on("test", () => {
-      window.alert("IT'S WORKING");
-    });
+    window.addEventListener("message", this.acceptedSubmit, false);
   },
   components: {
     "emoji-collector": EmojiCollector
   },
   methods: {
     happySubmit: function() {
-      this.btnState = true;
-      window.alert("Submission Successful");
+      window.close();
     }
   }
 };
@@ -54,8 +48,6 @@ export default {
 @import "@/assets/scripts/css/styles.scss";
 
 #submissions {
-  // background-color: $app-dark;
-
   #title {
     h1 {
       margin: 0.25em;
