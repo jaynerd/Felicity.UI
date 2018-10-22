@@ -1,39 +1,29 @@
 <template>
-    <div id='main' class='flex-column self-center'>
-        <app-header/>
-        <section v-if='isAuthenticated' class='view-max flex-row'>
-            <app-nav/>
-            <app-board/>
-        </section>
-        <app-login v-else/>
-        <app-footer/>
-        <div id='modal-anchor'/>
+  <v-app dark>
+    <div id='main' class='view-max flex-column self-center'>
+      <app-keepopen v-if="isAuthenticated"/>
+      <app-invitation v-else/>
     </div>
+  </v-app>
 </template>
 
 <script>
-import Nav from "./layout/Nav.vue";
-import Login from "./auth/Login.vue";
-import Board from "./layout/Board.vue";
-import Header from "./layout/Header.vue";
-import Footer from "./layout/Footer.vue";
+import Invitation from "@/components/auth/Invitation";
+import KeepOpen from "@/components/KeepOpen";
 
 export default {
   name: "Main",
   components: {
-    "app-nav": Nav,
-    "app-login": Login,
-    "app-board": Board,
-    "app-header": Header,
-    "app-footer": Footer
+    "app-keepopen": KeepOpen,
+    "app-invitation": Invitation
   },
   data() {
     return {
-      authenticated: true
+      isAuthenticated: false
     };
   },
   mounted() {
-    this.$bus.$on("logging-in", () => {
+    this.$bus.$on("authenticated", () => {
       this.isAuthenticated = true;
     });
   }

@@ -7,11 +7,21 @@ export default class EmojiController extends Vue {
     this.emojiRadius = window.innerHeight / 7;
     this.stageOffset = this.emojiRadius / 80;
 
-    this.happiness = 50;
+    this.oldHappiness = 50;
+    this.currentHappiness = this.oldHappiness;
   }
 
   setHappiness(newHappiness) {
-    this.happiness = newHappiness;
+    this.oldHappiness = this.currentHappiness;
+    this.currentHappiness = newHappiness;
+  }
+
+  get oldHappy() {
+    return this.oldHappiness;
+  }
+
+  get currentHappy() {
+    return this.currentHappiness;
   }
 
   get faceRadius() {
@@ -46,26 +56,18 @@ export default class EmojiController extends Vue {
     };
   }
 
-  get leftEyeConfig() {
-    return eyeConfig(
-      (this.emojiRadius * 2) / 3,
-      this.emojiRadius,
-      this.happiness
-    );
+  leftEyeConfig(happiness) {
+    return eyeConfig((this.emojiRadius * 2) / 3, this.emojiRadius, happiness);
   }
 
-  get rightEyeConfig() {
-    return eyeConfig(
-      (this.emojiRadius * 4) / 3,
-      this.emojiRadius,
-      this.happiness
-    );
+  rightEyeConfig(happiness) {
+    return eyeConfig((this.emojiRadius * 4) / 3, this.emojiRadius, happiness);
   }
 
-  get lipConfig() {
+  lipConfig(happiness) {
     let lipHalfHeight = this.emojiRadius / 6;
     let lipHalfWidth = (this.emojiRadius * 2) / 4;
-    let lipMid = map(this.happiness, 0, 100, -lipHalfHeight, lipHalfHeight);
+    let lipMid = map(happiness, 0, 100, -lipHalfHeight, lipHalfHeight);
     let lipSides = -lipMid;
 
     return {

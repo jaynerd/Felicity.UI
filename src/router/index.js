@@ -3,8 +3,10 @@ import Router from "vue-router";
 import Vuetify from "vuetify";
 import VueKonva from "vue-konva";
 import Main from "@/components/Main";
-import Invitation from "@/components/Invitation";
-import Submission from "@/components/Submission";
+import Submission from "@/components/submission/Submission";
+import NotifPopUp from "@/components/notification/NotifPopUp";
+
+import "vuetify/dist/vuetify.min.css";
 
 Vue.use(Router);
 Vue.use(Vuetify);
@@ -14,13 +16,18 @@ export default new Router({
   routes: [
     {
       path: "/",
-      name: "Invitation",
-      component: Invitation
+      name: "Main",
+      component: Main
     },
     {
       path: "/submission",
       name: "Submission",
       component: Submission
+    },
+    {
+      path: "/notification",
+      name: "NotifPopUp",
+      component: NotifPopUp
     }
   ]
 });
