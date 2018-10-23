@@ -18,7 +18,7 @@ export default {
         if (event.data.type == "Postpone") {
           this.notifier.postpone(event.data.time);
         } else if (event.data.type == "Submit") {
-          window.open(window.origin + "/submission");
+          window.open(window.origin + "/#/submission");
         }
       }
     }
