@@ -1,6 +1,9 @@
 <template>
 <v-app dark>
-  <div id='submissions' class='view-max flex-column content-center'>
+  <div id="submitted" class='view-max flex-column content-center' v-if="isSubmitted">
+    <h1 class='flex-column self-center'>Thank you for submitting.</h1>
+  </div>
+  <div id='submissions' class='view-max flex-column content-center' v-else>
     <div id='title' class="flex-row self-center">
       <h1 class='flex-1 self-center'>{{ title }}</h1>
       <img src="@/components/FelicityLogo.png"/>
@@ -27,7 +30,8 @@ export default {
     return {
       title: "Happiness Submission",
       question1: "Please indicate how you feel about your work.",
-      question2: "Please indicate how you think the team feel about the work."
+      question2: "Please indicate how you think the team feel about the work.",
+      isSubmitted: false
     };
   },
   mounted() {
@@ -38,7 +42,10 @@ export default {
   },
   methods: {
     happySubmit: function() {
-      window.close();
+      this.isSubmitted = true;
+      setTimeout(() => {
+        window.close();
+      }, 3000);
     }
   }
 };
