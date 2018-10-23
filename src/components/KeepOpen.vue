@@ -2,7 +2,7 @@
     <div id="keep-open" class="view-max flex-column content-center">
         <div id="keepon-box" class="flex-column self-center">
             <img src="@/components/FelicityLogo.png"/>
-            <span>Keep open to recieve notification</span>
+            <span>Keep open to receive notification</span>
         </div>
     </div>
 </template>
